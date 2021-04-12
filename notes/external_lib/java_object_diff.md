@@ -2,7 +2,7 @@
 title: "java-object-diff"
 tags:
   - external_lib
-draft: false
+draft: true
 ---
 
 java-object-diff - это библиотека для определения различий между различными версиями одной сущности.
