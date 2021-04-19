@@ -5,7 +5,7 @@ tags:
 draft: false
 ---
 
-Akka Actors - это основной модуль экосистемы Akka, который реализует [Модель акторов](evernote:///view/170585988/s440/a521a326-f18c-d84b-c4ef-e7adfffde569/48961e8e-4a2c-4d01-818a-19d7bfdff159/).
+Akka Actors - это основной модуль экосистемы Akka, который реализует [Модель акторов](../architecture/actor_model.md).
 
 ![actors](../../images/actor.png)
 
