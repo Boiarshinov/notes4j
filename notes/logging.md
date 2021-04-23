@@ -1,6 +1,7 @@
 ---
 title: "Логирование"
 tags:
+  - logging
 draft: false
 ---
 

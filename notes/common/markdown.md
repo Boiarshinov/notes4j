@@ -186,9 +186,9 @@ Markdown поддерживает HTML
 ---
 ## К изучению
 
-- [X] Википедия:  https://ru.wikipedia.org/wiki/Markdown
+- [X] Википедия: https://ru.wikipedia.org/wiki/Markdown
 - [ ] Спецификация на Markdown: https://spec.commonmark.org/
 - [X] Быстрый туториал: https://commonmark.org/help/tutorial/ 
-- [ ] Краткое руководство:  https://paulradzkov.com/2014/markdown_cheatsheet/
-- [ ] Хорошая статья:  http://ilfire.ru/kompyutery/shpargalka-po-sintaksisu-markdown-markdaun-so-vsemi-samymi-populyarnymi-tegami/
+- [ ] Краткое руководство: https://paulradzkov.com/2014/markdown_cheatsheet/
+- [ ] Хорошая статья: http://ilfire.ru/kompyutery/shpargalka-po-sintaksisu-markdown-markdaun-so-vsemi-samymi-populyarnymi-tegami/
 - [ ] Большое руководство на англ: https://www.markdownguide.org/getting-started/
