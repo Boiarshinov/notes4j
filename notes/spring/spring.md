@@ -20,7 +20,7 @@ draft: false
 
 - Application Context & Dependency Injection -
 - [Spring MVC](spring_mvc.md) - замена [сервлетам](../servlets/servlet.md)
-- Data Access
+- [Data Access](spring_framework_jdbc.md) - тонкая обертка над [JDBC](../java/jdbc.md). Также почему-то включает в себя работу с XML.
 
 ---
 ## К изучению
