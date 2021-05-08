@@ -5,18 +5,18 @@ tags:
 draft: false
 ---
 
-Bean Validation - это библиотека, входящая в состав [Java EE](../java_ee/java_ee.md) (начиная с версии 6.0), позволяющая валидировать приходящие значения на удовлетворение каким-либо условиям.
+# Bean Validation
+
+Bean Validation - это стандарт, входящий в состав [Java EE](../java_ee/java_ee.md) (начиная с версии 6.0)и позволяющий валидировать приходящие значения на удовлетворение каким-либо условиям.
 
 Начиная с версии 2.0 для использования библиотеки в своем проекте необязательно подтягивать зависимость всей Java EE.
 
 Bean Validation представляет собой спецификацию, реализовывать которую могут различные вендоры.
 
 Реализации:
-
 - Hibernate Validator - единственная успешная реализация.
 
 С помощью Bean Validation можно валидировать следующее:
-
 - обязательность поля
 - валидация значений чисел
 - валидация длины строки / числа
@@ -26,7 +26,32 @@ Bean Validation представляет собой спецификацию, р
 Весь код Bean Validation находится в пакете `javax.validation`, который необходимо подключать к проекту отдельно.
 
 ---
+## Использование
 
+Bean Validation позволяет устанавливать ограничения на значения полей (а еще аргументов методов) объектов с помощью установки аннотаций, несущих в себе метаданные об ограничениях.
+Аннотации могут ставиться на поля, на аргументы метода, на целый класс и даже на обобщенные типы в классах-контейнерах.
+Вот к примеру обычный модельный класс, в котором с помощью аннотаций Bean Validation установлены ограничения на значения ряда полей:
+
+```java
+@ValidUser
+public class User {
+    @NotNull private String name;
+    @Email private String email;
+    @Min(18) private int age;
+    @NotEmpty private List<@Skill Skill> skills;
+    
+    /* ... getters, setters, etc. */
+}
+```
+
+Проверка соответствия объекта заданным ограничениям выполняется с помощью специального валидатора:
+```java
+
+```
+
+<mark>Дописать</mark>
+
+---
 ## Валидирующие аннотации
 
 ### Общего назначения
@@ -42,9 +67,11 @@ Bean Validation представляет собой спецификацию, р
 - `@Positive` - число должно быть положительным.
 - много других
 
+```java
 @Positive
 @Max(100500)
 private final Integer salary;
+```
 
 ### Строки
 
@@ -72,7 +99,6 @@ private final Integer salary;
 ## Создание собственных правил валидации
 
 Для создания собственных правил валидации необходимо сделать две вещи:
-
 1. Создать аннотацию, которая будет проставляться над полями, требующими нестандартной валидации
 2. Создать класс-валидатор, который будет производить необходимые проверки.
 
@@ -84,30 +110,53 @@ private final Integer salary;
 
 `@Target` должно быть задано значением `ElementType.FIELD`, если планируется ставить аннотацию над полями класса, или `ElementType.METHOD`, если аннотацию планируется ставить над сеттерами. Можно задать оба этих значения (и даже больше).
 
-Нетипичным шагом является навешивание аннотации `@Constraint` в которой необходимо указать класс-валидатор, который будет производить проверки.
+Нетипичным шагом является навешивание аннотации `@Constraint`, в которой необходимо указать класс-валидатор, который будет производить проверки.
 
 Для этого в аннотации нужно присвоить значение атрибуту `validatedBy` значение типа `Class`.
 
 Также в аннотации обязательно должны быть определены следующие параметры:
 
-- String message() - сообщение об ошибке, которое должно начинаться с полного пути до класса `dev.boiarshinov.project.validation.MyRule.<message>`.
-- `Class<?>[] groups()` - для кастомизации групп ???
-- `Class<? extends Payload>[] payload()` - для расширения ???
+- `String message()` - сообщение об ошибке. Обычно в целях интернализации в дефолтное значение вписывают название ключа, по которому можно найти текст сообщения в properties-файлике нужной локали. По соглашению значение ключа должно соответствовать полному пути до класс-файла аннотации `dev.boiarshinov.project.validation.MyConstraint.message`.
+- `Class<?>[] groups()` - для кастомизации групп. Каждая валидация может проходить в рамках какой-либо группы валидации. Если ни одной группы не передано, то используется группа `Default`.
+- `Class<? extends Payload>[] payload()` - метаданные о конкретном использовании ограничения. `Payload` - это маркировочный интерфейс, нужный для обеспечения типобезопасности. Переданные метаданные можно вытащить в валидаторе и на их основе реализовать какую-либо логику.
 
 Полный пример создания пользовательской аннотации приведен ниже:
 ```java
-@Constraint(validatedBy = MyRuleConstraintValidator.class)
+@Constraint(validatedBy = MyConstraintValidator.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MyRule {
+public @interface MyConstraint {
     public String value();
 
-    public String message() default "dev.boiarshinov.project.validation.MyRule.Vovan - loh!";
-
+    public String message() default "{dev.boiarshinov.project.validation.MyConstraint.message}";
     public Class<?>[] groups() default {};
     public Class<? extends Payload>[] payload() default {};
 }
 ```
+
+#### Объединение ограничений
+
+Иногда требуемое ограничение может быть композицией нескольких существующих ограничений. 
+Например телефонный номер можно описать двумя ограничениями: размер строки и регулярка на цифры.
+Тогда удобно создать одну композитную аннотацию
+```java
+@Pattern("\\d*")
+@Size(min = 10, max = 10)
+@ReportAsSingleViolation
+@@Constraint(validatedBy = PhoneValidator.class)
+@Target({ElementType.METHOD, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Phone {
+
+    public String message() default "{dev.boiarshinov.project.validation.Phone.message}";
+    public Class<?>[] groups() default {};
+    public Class<? extends Payload>[] payload() default {};
+}
+```
+При нарушении значением сразу нескольких ограничений будет получено сообщение по каждому из них.
+Если хочется, чтобы сообщение было только одно, то нужно повесить аннотацию `@ReportAsSingleViolation`.
+В этом случае при нарушении любого из ограничений в отчет попадет сообщение только композитной аннотации.
+
 
 ### Создание класса-валидатора
 
@@ -115,25 +164,25 @@ public @interface MyRule {
 
 Также необходимо реализовать два метода:
 
-- `void initialize(A annotation)` - принимает данные из аннотации. (Метод дефолтный, его можно не переопределять, если у аннотации нет аргументов).
+- `void initialize(A annotation)` - инициализирует валидатор в соответствии со значениями параметров, определенных в аннотации. (Метод дефолтный, его можно не переопределять, если у аннотации нет аргументов).
 - `boolean isValid(T value, ConstraintValidatorContext)` - true, если пришедшее значение удовлетворяет ограничению.
 
+Считается хорошим тоном возвращать true, если в метод `isValid()` приходит null. 
+Для того чтобы запретить аннотированному параметру принимать значение null, разработчик должен дополнительно навесить на него ограничение `@NotNull`.
+
 ```java
-public class MyRuleConstraintValidator implements ConstraintValidator<MyRule, String> {
+public class MyConstraintValidator implements ConstraintValidator<MyConstraint, String> {
 
     private String valueFromAnnotation;
 
     @Override
-    public void initialize(final MyRule myRule) {
-        this.valueFromAnnotation = myRule.value();
+    public void initialize(final MyConstraint myConstraint) {
+        this.valueFromAnnotation = myConstraint.value();
     }
 
     @Override
-
     public boolean isValid(final String valueFromUser, final ConstraintValidatorContext context) {
-
         final boolean isValid = /* function(valueFromAnnotation, valueFromUser) */;
-
         return isValid;
     }
 }
@@ -154,9 +203,7 @@ public class AgentController {
 
     @GetMapping("/agent/basic-info")
     public List<AgentBasicInfo> basicInfo(
-
         @RequestParam(name = "referral_hash") @NotEmpty final List<String> agentsHashes,
-
     ) {
         /* */
     }
@@ -167,7 +214,6 @@ public class AgentController {
 ## Подключение зависимости
 
 Для подключения библиотеки необходимо добавить в `pom.xml` следующую зависимость
-
 ```xml
 <dependency>
     <groupId>javax.validation</groupId>
@@ -176,8 +222,7 @@ public class AgentController {
 </dependency>
 ```
 
-Также необходимо добавить зависимость одной из реализаций. Допустим это будет Hibernate Validator:
-
+Также необходимо добавить зависимость одной из реализаций. Выбор тут небольшой:
 ```xml
 <dependency>
     <groupId>org.hibernate.validator</groupId>
@@ -185,6 +230,15 @@ public class AgentController {
     <version>${hibernate-validator.version}</version>
 </dependency>
 ```
+
+В Spring Boot приложениях достаточно добавить одну зависимость: `spring-boot-starter`.
+
+---
+## Идеи
+
+Стоит подумать над тем, чтобы добавить аннотацию `@Enum`, которая проверяет, что пришедшая строка (из json) соответствует хотя бы одному из значений перечисления.
+Возможно это нужно добавлять не сюда, а куда-то на стык с Spring MVC и Jackson.
+
 
 ---
 ## К изучению
