@@ -15,6 +15,7 @@ Bean Validation представляет собой спецификацию, р
 
 Реализации:
 - Hibernate Validator - единственная успешная реализация.
+- [Apache BVal](http://bval.apache.org/index.html) - еще одна реализация, которая почему-то не признана Bean Validation 
 
 С помощью Bean Validation можно валидировать следующее:
 - обязательность поля
@@ -46,7 +47,9 @@ public class User {
 
 Проверка соответствия объекта заданным ограничениям выполняется с помощью специального валидатора:
 ```java
-
+ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+Validator validator = factory.getValidator();
+Set<ConstraintViolation<User>> violations = validator.validate(user);
 ```
 
 <mark>Дописать</mark>
@@ -239,6 +242,9 @@ public class AgentController {
 Стоит подумать над тем, чтобы добавить аннотацию `@Enum`, которая проверяет, что пришедшая строка (из json) соответствует хотя бы одному из значений перечисления.
 Возможно это нужно добавлять не сюда, а куда-то на стык с Spring MVC и Jackson.
 
+Аннотация `@Length` из hibernate-validator является менее мощным вариантом аннотации `@Size`. 
+Так что стоит объявить ее deprecated.
+
 
 ---
 ## К изучению
@@ -247,3 +253,5 @@ public class AgentController {
 - [X] Курс Spring & Hibernate for Beginners на Udemy
 - [X] Интеграция Bean Validation и спринговых Rest-контроллеров: https://www.baeldung.com/spring-validate-requestparam-pathvariable
 - [ ] Документация на спринговую валидацию: https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#validation
+- [X] Устаревшая статья с множеством ошибок: https://habr.com/ru/post/424819/
+- [X] Статья про Bean Validation и его интеграцию со Spring Boot: https://habr.com/ru/post/536612/
