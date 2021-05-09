@@ -54,8 +54,13 @@ Set<ConstraintViolation<User>> violations = validator.validate(user);
 
 Класс `Validation` - это входная точка в библиотеку Bean Validation.
 С его помощью можно выбрать конкретную реализацию стандарта Bean Validation и настроить фабрику валидаторов.
+В простейшем случае можно использовать метод `buildDefaultValidatorFactory()`.
 
-<mark>Дописать</mark>
+После создания валидатора <mark>А зачем их может быть много?</mark> можно проверить соответствие ограничениям какого-либо объекта.
+В результате будет возвращено множество нарушений ограничений. 
+Если нарушений нет, то множество будет пустым.
+
+<mark>Как происходит сканирование аннотаций и вытаскивание значений?</mark>
 
 ---
 ## Валидирующие аннотации
@@ -202,6 +207,34 @@ public class MyConstraintValidator implements ConstraintValidator<MyConstraint, 
 <mark>Можно ли кидать бизнесовые исключения в методе `isValid()`?</mark>
 
 ---
+## `ConstraintViolation`
+
+При валидации объекта на соответствие ограничениям возвращается множество объектов, реализующих интерфейс `ConstraintViolation`.
+```java
+Set<ConstraintViolation<User>> violations = validator.validate(user);
+```
+
+Каждый `ConstraintViolation` - это нарушение какого-либо ограничения.
+
+После получения множества ограничения их хотелось бы каким-то образом обработать.
+Например, в веб-приложении можно вывести пользователю информацию о том, какие поля он заполнил неверно.
+Для получения деталей нарушения ограничения интерфейс `ConstraintViolation` предоставляет множество методов:
+- `String getMessage()` - возвращает сообщение о нарушении
+- `String getMessageTemplate()` - возвращает шаблон, по которому было сформировано сообщение. Чаще всего это ключ сообщения в properties-файле
+- `T getRootBean()` - возвращает объект, по которому было обнаружено нарушение.
+- `Path getPropertyPath()` - возвращает путь до значения в валидируемом объекте, в котором было найдено нарушение
+- другие
+
+<mark>Лучше переделать тупое перечисление методов на осмысленный текст</mark>
+
+### `Path`
+
+`Path` - это путь до значения, по которому была провалена валидация.
+
+Путь представляет собой коллекцию узлов <mark>TODO</mark>
+
+
+---
 ## Интеграция со Spring
 
 <mark>Вынести в отдельную заметку</mark>
@@ -227,23 +260,21 @@ public class AgentController {
 ---
 ## Подключение зависимости
 
-Для подключения библиотеки необходимо добавить в `pom.xml` следующую зависимость
-```xml
-<dependency>
-    <groupId>javax.validation</groupId>
-    <artifactId>validation-api</artifactId>
-    <version>${validation.version}</version>
-</dependency>
-```
-
-Также необходимо добавить зависимость одной из реализаций. Выбор тут небольшой:
+Сама по себе библиотека Bean Validation использоваться не может, поэтому в `pom.xml` нужно добавить зависимость какой-либо ее реализации. 
+Например, `hibernate-validator`:
 ```xml
 <dependency>
     <groupId>org.hibernate.validator</groupId>
     <artifactId>hibernate-validator</artifactId>
     <version>${hibernate-validator.version}</version>
 </dependency>
+<dependency>
+    <groupId>org.glassfish</groupId>
+    <artifactId>jakarta.el</artifactId>
+    <version>${jakarya.el.version}</version>
+</dependency>
 ```
+Библиотеку `jakarta.el` нужно подключить для того, чтобы обрабатывать EL-выражения.
 
 В Spring Boot приложениях достаточно добавить одну зависимость: `spring-boot-starter-validation`.
 
@@ -285,6 +316,8 @@ public class AgentController {
 - Интеграция со Spring
 
 На [сайте Bean Validation](https://beanvalidation.org/2.0/) указано, что версию 2.0 стандарта поддерживает только Hibernate Validator, хотя в [гитхабе проекта Apache BVal](https://github.com/apache/bval) написано, что они тоже поддержали JSR 380
+
+Класс `NodeImpl` написан с нарушением принципа подстановки Барбары Лисков и вообще его хочется переделать на рекорд.
 
 ---
 ## К изучению
