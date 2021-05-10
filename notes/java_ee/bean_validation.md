@@ -255,6 +255,14 @@ public interface AlienGroup { }
 В Bean Validation существует всего одна предопределенная группа валидации - `Default`. 
 Именно она используется при валидации, если не указаны другие группы.
 Все валидирующие аннотации, в которых не определены группы тоже считаются относящимися в группе `Default`.
+По сути запись 
+```java
+@NotNull String name;
+```
+эквивалентна записи
+```java
+@NotNull(groups = Default.class) String name;
+```
 
 ### Использование групп валидации
 
@@ -287,7 +295,24 @@ final Set<ConstraintViolation<User>> violations = validator.validate( user, Alie
 
 ### Наследование групп
 
-<mark>TODO</mark>
+Благодаря тому что группы представлены интерфейсами, можно выстраивать целые иерархии групп.
+Например, можно унаследовать свою группу от `Default`:
+```java
+public interface AdultGroup extends Default { }
+```
+
+```java
+class AdultUser extends User {
+	@Min( value = 18, groups = AdultGroup.class ) private final int age;
+  /* constructor, getter */
+}
+```
+
+Тогда при проверке соответствия ограничениям не нужно будет дополнительно указывать дефолтную группу. Будут проверены и поля, относящиеся к указанной группе и к дефолтной:
+```java
+final AdultUser user = new AdultUser( "Josh", "invalid email", null, 17 );
+final Set<ConstraintViolation<AdultUser>> violations = validator.validate( user, AdultGroup.class );
+```
 
 ---
 ## Интеграция со Spring
