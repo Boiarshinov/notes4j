@@ -27,7 +27,7 @@ Git - система контроля версий
 - `git clone`
 - `git merge` - сливает две ветки в одну
 
-![](../../../images/git_branches.png)
+![](../../images/git_branches.png)
 
 Состояния документов:
 
