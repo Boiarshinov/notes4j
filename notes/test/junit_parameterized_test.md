@@ -171,6 +171,30 @@ class MethodSourceTest { /* */ }
 ```
 
 ---
+## Мысли и идеи
+
+Зачастую в формируемом с помощью `@ParameterizedTest(name = "...")` названии теста сложно передать намерения тесткейса.
+Так случается, когда передаваемые аргументы имеют слишком длинный `toString()`.
+Из-за этого приходится в `Arguments.of()` добавлять дополнительный аргумент - строчку, которая разъясняет тесткейс. Этот аргумент приходится принимать в тестовом методе, хотя он не требуется для прогонки теста.
+
+Было бы классно добавить в интерфейс `Arguments` метод `withDescription(String)`, который бы позволял описать тесткейс без введения дополнительных аргументов.
+
+```java
+private static Stream<Arguments> testArgumentsProvider() {
+    return Stream.of(
+        Arguments.of(ComplicatedDto.createInvalid1()).withDescription("lol"),
+        Arguments.of(ComplicatedDto.createInvalid2()).withDescription("kek")
+    );
+}
+
+@ParameterizedTest(name = "[{index}] Invalid invariants with {descr}")
+@MethodSource("testArgumentsProvider")
+void test(ComplicatedDto dto) {
+    /* ... */
+}
+```
+
+---
 ## К изучению
 
 - [X] Официальная документация: https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests
