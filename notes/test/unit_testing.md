@@ -15,20 +15,47 @@ draft: false
 ---
 ## Структура теста
 
+### AAA
 Структура теста обычно подчиняется правилу **AAA - arrange, act, assert**:
 
 - Подготовка входных данных, подготовка эталонных данных
 - Вызов тестирующего метода
 - Проверка результата работы метода с эталонными данными
 
-<mark>//Вставить пример</mark>
+```java
+@Test
+public void complementOf() {
+  //arrange
+  final EnumSet<ProfileType> onlyStaff = EnumSet.of(ProfileType.ADMIN, ProfileType.MODERATOR);
+
+  //act
+  final EnumSet<ProfileType> onlyClients = EnumSet.complementOf(onlyStaff);
+
+  //assert
+  assertEquals(onlyClients.size(), 2);
+  assertTrue(onlyClients.contains(ProfileType.GUEST));
+  assertTrue(onlyClients.contains(ProfileType.USER));
+}
+```
+
+### Given-When-Then
+Есть еще один вариант структуры тестов: **Given-When-Then** - когда при указанном состоянии системы и определенных входных данных (Given) произойдет какое-либо событие (When) ожидается переход системы в другое состояние и/или происхождение новых событий (Then).
+
+Структура почти полностью повторяет AAA, но легче воспринимается людьми далекими от программирования.
 
 ---
-См. также:
+## Библиотеки для юнит-тестирования
+Тесты могут представлять собой обычные классы с методами `main`. 
+Запускать такие тесты придется самостоятельно.
+Но как правило для юнит-тестов существуют специальные библиотеки, управляющие их жизненным циклом.
+Один из самых популярных фреймворков - xUnit, где вместо 'x' подставляется идентификатор языка.
 
-[JUnit - модульное тестирование](junit.md)
+Java:
+- [JUnit](junit.md)
+- TestNG
+- Spock (написан на Groovy, но может использоваться для тестирования Java кода)
 
 ---
 ## К изучению
-
-- [X] Семинар от Немчинского (50 мин.):  https://www.youtube.com/watch?v=KAny2OSYY3Y
+- [X] Анатомия юнит-тестов: https://habr.com/ru/post/554808/
+- [X] Семинар от Немчинского (50 мин.): https://www.youtube.com/watch?v=KAny2OSYY3Y
