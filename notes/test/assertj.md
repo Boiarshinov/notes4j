@@ -3,7 +3,7 @@ title: "AssertJ"
 tags:
   - test
   - external_lib
-draft: true
+draft: false
 ---
 
 # AssertJ

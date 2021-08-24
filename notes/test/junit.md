@@ -320,7 +320,7 @@ junit.jupiter.execution.parallel.config.strategy = dynamic
 ---
 ## Подключение зависимости
 
-Для включения JUnit в проект необходимо в [Maven](../build/maven.md)добавить следующую зависимость:
+Для включения JUnit в проект необходимо в [Maven](../build/maven.md) добавить следующую зависимость:
 
 ```xml
 <dependency>
@@ -338,7 +338,7 @@ junit.jupiter.execution.parallel.config.strategy = dynamic
 ## К изучению
 
 - [X] Официальная документация на JUnit 5: https://junit.org/junit5/docs/current/user-guide/
-- [X] Азы:  http://javastudy.ru/junit/junit-hello-world/
+- [X] Азы: http://javastudy.ru/junit/junit-hello-world/
 - [X] Описание JUnit 3 и JUnit 4 и их различий: https://habr.com/ru/post/120101/
 - [ ] Как тестировать приватные методы: https://www.artima.com/suiterunner/private.html
 - [ ] Неплохой сайт по основам с примерами: https://easyjava.ru/category/testing/junit/

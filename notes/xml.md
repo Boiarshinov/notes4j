@@ -191,7 +191,7 @@ xsi:noNamespaceSchemaLocation="example_schema1.xsd"
 Существует несколько способов:
 
 - SAX
-- DOM
+- DOM - при парсинге загружает весь xml в память приложения, из-за чего не подходит для обработки больших файлов
 - JAXB
 
 <mark>Про каждый из них нужно писать отдельную заметку</mark>
@@ -223,4 +223,4 @@ xml-файлы широко применяются в качестве [деск
 - [X] Цикл из 3 статей про XML (написано корявенько): https://javarush.ru/groups/posts/620-konkurs-osnovih-xml-dlja-java-programmista---chastjh-1-iz-3
 - [X] Самое введение: https://javarush.ru/groups/posts/2287-chto-takoe-xml
 - [ ] Большой англоязычный сайт с туториалами по XML: https://www.w3schools.com/xml/default.asp
-- [ ] Рускоязычный учебник для начинающих: https://msiter.ru/tutorials/uchebnik-xml-dlya-nachinayushchih
+- [ ] Русскоязычный учебник для начинающих: https://msiter.ru/tutorials/uchebnik-xml-dlya-nachinayushchih

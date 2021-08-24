@@ -43,9 +43,9 @@ draft: false
 - [X] Все что обязательно нужно знать про веб-службы и REST (куча грамматических ошибок, но статья полезная): https://habr.com/ru/post/319984/
 - [ ] Мартин Фаулер о матерости веб-сервисов: https://martinfowler.com/articles/richardsonMaturityModel.html
 - [X] Краткое видео о принципах REST: https://www.youtube.com/watch?v=2CrjWD3VGG4
-- [X] Критика REST:  https://habr.com/ru/company/mailru/blog/345184/
-- [ ] Сравнение REST с SOAP:  https://habr.com/ru/post/131343/
-- [ ] Статьи по REST на JR:  https://javarush.ru/groups/posts/2486-obzor-rest-chastjh-1-chto-takoe-rest
+- [X] Критика REST: https://habr.com/ru/company/mailru/blog/345184/
+- [ ] Сравнение REST с SOAP: https://habr.com/ru/post/131343/
+- [ ] Статьи по REST на JR: https://javarush.ru/groups/posts/2486-obzor-rest-chastjh-1-chto-takoe-rest
 - [ ] Онлайн книга по REST (англ): http://restcookbook.com/
 - [ ] Книга про REST (англ): https://www.amazon.com/gp/product/0596805829?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596805829
 - [ ] Книга про RESTful Web API (с ленивцем): http://restfulwebapis.org/
