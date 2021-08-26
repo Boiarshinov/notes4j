@@ -1,6 +1,7 @@
 ---
 title: "Hazelcast"
 tags:
+  - database
   - java_and_db
 draft: false
 ---
@@ -8,7 +9,7 @@ draft: false
 Hazelcast - это серия продуктов компании Hazelcast.
 Основными продуктами компании являются:
 
-- Hazelcast IMDG - одна из реализаций [IMDG - In-Memory Data Grid](evernote:///view/170585988/s440/af69f377-6855-40ff-e534-d381d7926b17/326914af-80f0-4f87-a7f5-03a088fd06d8/).
+- Hazelcast IMDG - одна из реализаций [IMDG](../database/imdg.md).
 - Hazelcast Jet - сервис для распределенных вычислений
 
 ---
