@@ -10,7 +10,7 @@ draft: false
 ---
 ## Список фреймворков
 - Spring Framework
-- Spring Boot - связывает между собой все остальные фреймворки
+- [Spring Boot](spring_boot.md) - связывает между собой все остальные фреймворки
 - Spring Data - обеспечивает работу с данными
 - [Spring Security](spring_security.md) - обеспечивает безопасность приложения
 
