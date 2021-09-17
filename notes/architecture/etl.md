@@ -35,4 +35,4 @@ ELT противопоставляется концепция **ELT** при к�
 ## К изучению
 - [X] [ETL: что такое, зачем и для кого](https://chernobrovov.ru/articles/etl-chto-takoe-zachem-i-dlya-kogo.html)
 
-[kafka-connect]: ../external_lib/kafka_connect.md
+[kafka-connect]: ../tools/kafka_connect.md

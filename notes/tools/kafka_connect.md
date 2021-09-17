@@ -127,6 +127,6 @@ Kafka Connect может быть поднято в standalone режиме, н�
 ## К изучению
 - [X] Книга "Apache Kafka. Потоковая обработка и анализ данных". Глава 7
 - [X] [Документация](https://docs.confluent.io/platform/current/connect/index.html)
-- [X] [Видео-курс от Confluent](https://developer.confluent.io/learn-kafka/kafka-connect/intro/)
+- [X] [Видео-курс от Confluent](https://dKaeveloper.confluent.io/learn-kafka/kafka-connect/intro/)
 - [X] Хабр. [Как синхронизировать сотни таблиц базы в Kafka, не написав ни одного продюсера](https://habr.com/ru/company/mailru/blog/529484/) (Отличная статья) - 2020 г.
 
