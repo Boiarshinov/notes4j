@@ -3,6 +3,7 @@ title: "Hazelcast"
 tags:
   - database
   - java_and_db
+  - distributed_system
 draft: false
 ---
 

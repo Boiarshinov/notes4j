@@ -3,6 +3,7 @@ title: "Kafka Connect"
 tags:
   - pipeline
   - external_lib
+  - distributed_system
 draft: false
 ---
 

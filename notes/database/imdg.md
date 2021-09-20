@@ -2,6 +2,7 @@
 title: "IMDG"
 tags:
   - database
+  - distributed_system
 draft: false
 ---
 
