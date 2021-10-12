@@ -36,4 +36,4 @@ draft: false
 ---
 ## К изучению
 - [X] [Wiki](https://ru.wikipedia.org/wiki/%D0%A7%D0%B0%D1%81%D1%8B_%D0%9B%D1%8D%D0%BC%D0%BF%D0%BE%D1%80%D1%82%D0%B0)
-- [X] [4 лекция](https://www.youtube.com/watch?v=FQ_2N3AQu0M&list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB&index=8&ab_channel=MartinKleppmann) курса по распределенным системам от Мартина Клеппманна
+- [X] [4 лекция](https://www.youtube.com/watch?v=x-D8iFU1d-o&list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB&index=11&ab_channel=MartinKleppmann) курса по распределенным системам от Мартина Клеппманна
