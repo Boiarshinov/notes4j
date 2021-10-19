@@ -197,11 +197,12 @@ Mockito.verify(this.usersRepository).saveAndFlush(this.captor.capture());
 - `T verify(Supplier<T>)` - проверяет вызов метода на мокированном объекте
 - `verify(Runnable)` - проверяет вызов метода на мокированном объекте
 
+
 ---
 ## К изучению
 
-- [X] Официальный сайт: https://site.mockito.org/
+- [X] [Официальный сайт](https://site.mockito.org/)
 - [ ] Javadoc. Разработчики считают, что нет лучшей документации, чем код и поэтому всю документацию пишут исключительно в виде javadoc.
-- [ ] Wiki по Mockito (хорошие статьи общего назначения, но плохо рассказано как пользоваться библиотекой): https://github.com/mockito/mockito/wiki
-- [X] Хорошая статья с полным обзором: https://habr.com/ru/post/444982/
-- [X] Примеры использования Mockito (так себе): https://habr.com/ru/post/243155/
+- [ ] [Wiki](https://github.com/mockito/mockito/wiki) по Mockito (хорошие статьи общего назначения, но плохо рассказано как пользоваться библиотекой)
+- [X] Хорошая [статья](https://habr.com/ru/post/444982/) с полным обзором
+- [X] [Примеры использования](https://habr.com/ru/post/243155/) Mockito (так себе)

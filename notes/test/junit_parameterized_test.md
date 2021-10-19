@@ -194,9 +194,10 @@ void test(ComplicatedDto dto) {
 }
 ```
 
+
 ---
 ## К изучению
 
-- [X] Официальная документация: https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests
-- [X] Статья про параметризованные тесты на Baeldung: https://www.baeldung.com/parameterized-tests-junit-5
-- [X] MethodSource во вложенных тестовых классах: https://stackoverflow.com/questions/47933755/junit5-methodsource-in-nested-class
+- [X] [Официальная документация](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests)
+- [X] [Статья про параметризованные тесты на Baeldung](https://www.baeldung.com/parameterized-tests-junit-5)
+- [X] [MethodSource во вложенных тестовых классах](https://stackoverflow.com/questions/47933755/junit5-methodsource-in-nested-class)

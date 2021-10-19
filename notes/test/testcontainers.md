@@ -60,8 +60,9 @@ Testcontainers - это open-source библиотека для Java, позво
 </dependencyManagement>
 ```
 
+
 ---
 ## К изучению
 
-- [ ] Документация: https://www.testcontainers.org/
-- [ ] Пример написания кастомного тестконтейнера: https://github.com/gAmUssA/testcontainers-hazelcast/tree/master
+- [ ] [Официальная документация](https://www.testcontainers.org/)
+- [ ] [Пример](https://github.com/gAmUssA/testcontainers-hazelcast/tree/master) написания кастомного тестконтейнера

@@ -59,5 +59,5 @@ assertThat(ChronoUnit.HOURS)
 
 ---
 ## К изучению
-- [X] Документация: https://assertj.github.io/doc/
-- [X] Исходники: https://github.com/assertj
+- [X] [Официальная Документация](https://assertj.github.io/doc/)
+- [X] [Исходники](https://github.com/assertj)

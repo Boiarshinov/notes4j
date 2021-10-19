@@ -106,4 +106,5 @@ ConsumerRecord
 ## К изучению
 
 - [X] [Краткий курс от Confluent](https://developer.confluent.io/learn-kafka/apache-kafka/events/)
+- [ ] [Официальный сайт](https://kafka.apache.org/)
 - [ ] [Рекомендацию по именованию топиков](https://devshawn.com/blog/apache-kafka-topic-naming-conventions/)

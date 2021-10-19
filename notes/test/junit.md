@@ -334,11 +334,12 @@ junit.jupiter.execution.parallel.config.strategy = dynamic
 
 Строчка `<scope>test</scope>` указывает Maven, что зависимость нужна только при исполнении тестов.
 
+
 ---
 ## К изучению
 
-- [X] Официальная документация на JUnit 5: https://junit.org/junit5/docs/current/user-guide/
-- [X] Азы: http://javastudy.ru/junit/junit-hello-world/
-- [X] Описание JUnit 3 и JUnit 4 и их различий: https://habr.com/ru/post/120101/
-- [ ] Как тестировать приватные методы: https://www.artima.com/suiterunner/private.html
-- [ ] Неплохой сайт по основам с примерами: https://easyjava.ru/category/testing/junit/
+- [X] [Официальная документация](https://junit.org/junit5/docs/current/user-guide/) на JUnit 5
+- [X] [Азы](http://javastudy.ru/junit/junit-hello-world/) статья на русском
+- [X] [Описание JUnit 3 и JUnit 4 и их различий](https://habr.com/ru/post/120101/)
+- [ ] [Как тестировать приватные методы](https://www.artima.com/suiterunner/private.html)
+- [ ] [Неплохой сайт по основам с примерами](https://easyjava.ru/category/testing/junit/)
