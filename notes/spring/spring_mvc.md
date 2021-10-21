@@ -159,6 +159,6 @@ public String getInfo(@ModelAttribute("person") Person person) {
 ---
 ## К изучению
 
-- [ ] Официальная документация на Spring MVC: https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html
+- [ ] [Официальная документация](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) на Spring MVC
 - [X] Курс Spring & Hibernate for Beginners на Udemy
-- [X] Перечисления в параметрах URL:  https://www.baeldung.com/spring-enum-request-param
+- [X] [Перечисления в параметрах URL](https://www.baeldung.com/spring-enum-request-param)

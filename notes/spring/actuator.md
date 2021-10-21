@@ -53,6 +53,6 @@ management:
 ---
 ## К изучению
 
-- [X] Введение в Spring Boot Actuator: https://habr.com/ru/company/otus/blog/452624/
-- [ ] Официальная документация: https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html
+- [X] [Введение в Spring Boot Actuator](https://habr.com/ru/company/otus/blog/452624/)
+- [ ] [Официальная документация](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)
 - [X] Курс Spring & Hibernate for Beginners на Udemy в части касающейся

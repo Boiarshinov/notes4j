@@ -197,8 +197,8 @@ public class MusicPlayer {
 ## К изучению
 
 - [ ] https://proselyte.net/tutorials/spring-tutorial-full-version/introduction-into-beans/
-- [X] Разница между Spring Bean, JavaBean и POJO: https://www.shaunabram.com/beans-vs-pojos/
-- [X] Ролики от Алишева: https://www.youtube.com/playlist?list=PLAma_mKffTOR5o0WNHnY0mTjKxnCgSXrZ
-- [ ] Гайд по областям применения бинов на Baeldung: https://www.baeldung.com/spring-bean-scopes
-- [ ] Проблема сужения области видимости бинов при внедрении: https://www.logicbig.com/tutorials/spring-framework/spring-core/injecting-singleton-with-prototype-bean.html#narrow-scoped-bean-sol
-- [X] Отличия в разновидностях аннотации `@Component`: https://stackoverflow.com/questions/6827752/whats-the-difference-between-component-repository-service-annotations-in
+- [X] [Разница между Spring Bean, JavaBean и POJO](https://www.shaunabram.com/beans-vs-pojos/)
+- [X] [Ролики от Алишева](https://www.youtube.com/playlist?list=PLAma_mKffTOR5o0WNHnY0mTjKxnCgSXrZ)
+- [ ] [Гайд](https://www.baeldung.com/spring-bean-scopes) по областям применения бинов на Baeldung
+- [ ] [Проблема сужения области видимости бинов](https://www.logicbig.com/tutorials/spring-framework/spring-core/injecting-singleton-with-prototype-bean.html#narrow-scoped-bean-sol) при внедрении
+- [X] [Отличия в разновидностях аннотации `@Component`](https://stackoverflow.com/questions/6827752/whats-the-difference-between-component-repository-service-annotations-in)

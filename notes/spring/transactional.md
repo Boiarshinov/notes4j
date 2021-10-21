@@ -54,7 +54,7 @@ public class TransactionConfig {
 - `REQURES_NEW` -
 - `NOT_SUPPORTED` - Метод будет выполняться без учета транзакций. Если при заходе в метод существовала транзакция, то она продолжается. Используется, когда в методе не происходит никакой работы с БД.
 - `NEVER` - Данный метод не может работать в транзакции. При ее наличии выбрасывается исключение.
-- `NESTED` -  При входе в метод из транзакции создается транзакция внутри транзакции. Мы встроили тебе монитор в монитор ...
+- `NESTED` - При входе в метод из транзакции создается транзакция внутри транзакции. Мы встроили тебе монитор в монитор ...
 
 ### Уровни изоляции
 
@@ -86,6 +86,6 @@ public class TransactionConfig {
 ---
 ## К изучению
 
-- [X] Работа с транзакциями в Spring: https://habr.com/ru/company/otus/blog/431508/
-- [ ] Транзакции в Spring Framework (как транзакции работают под капотом): https://medium.com/@kirill.sereda/%D1%82%D1%80%D0%B0%D0%BD%D0%B7%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%B2-spring-framework-a7ec509df6d2
+- [X] [Работа с транзакциями в Spring](https://habr.com/ru/company/otus/blog/431508/)
+- [ ] [Транзакции в Spring Framework](https://medium.com/@kirill.sereda/%D1%82%D1%80%D0%B0%D0%BD%D0%B7%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%B2-spring-framework-a7ec509df6d2) (как транзакции работают под капотом)
 - [ ] javadoc на `org.springframework.transaction`

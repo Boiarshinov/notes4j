@@ -148,7 +148,7 @@ public class OffsetBasedPageRequest implements Pageable, Serializable {
 
 ---
 ## К изучению
-- [ ] Гайд по пагинации на Baeldung: https://www.baeldung.com/spring-data-jpa-pagination-sorting
+- [ ] [Гайд по пагинации](https://www.baeldung.com/spring-data-jpa-pagination-sorting) на Baeldung
 - [ ] Javadoc на классы пагинации
-- [X] Реализация пагинации через отступ и размер страницы: https://stackoverflow.com/questions/25008472/pagination-in-spring-data-jpa-limit-and-offset
-- [ ] Официальная документация: https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.special-parameters
+- [X] [Реализация пагинации через отступ и размер страницы](https://stackoverflow.com/questions/25008472/pagination-in-spring-data-jpa-limit-and-offset)
+- [ ] [Официальная документация](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.special-parameters)

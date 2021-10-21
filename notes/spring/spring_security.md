@@ -249,9 +249,9 @@ Spring Security из коробки позволяет хранить данны
 ---
 ## К изучению:
 
-- [ ] Про доступ к методам: https://www.baeldung.com/spring-security-method-security
-- [ ] Официальная документация на Spring Security: https://docs.spring.io/spring-security/site/docs/5.4.1/reference/html5/#introduction
-- [ ] Краткий обзор Spring Security: https://habr.com/ru/post/470786
+- [ ] [Про доступ к методам](https://www.baeldung.com/spring-security-method-security)
+- [ ] [Официальная документация](https://docs.spring.io/spring-security/site/docs/5.4.1/reference/html5/#introduction) на Spring Security
+- [ ] [Краткий обзор](https://habr.com/ru/post/470786) Spring Security
 - [X] Курс Spring & Hibernate for Beginners на Udemy в части касающейся
-- [ ] Способы аутентификации в REST-сервисах: https://habr.com/ru/post/245415
-- [X] Сравнение видов шифрования паролей: https://medium.com/@danboterhoven/why-you-should-use-bcrypt-to-hash-passwords-af330100b861
+- [ ] [Способы аутентификации в REST-сервисах](https://habr.com/ru/post/245415)
+- [X] [Сравнение видов шифрования паролей](https://medium.com/@danboterhoven/why-you-should-use-bcrypt-to-hash-passwords-af330100b861)

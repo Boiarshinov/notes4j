@@ -25,7 +25,7 @@ draft: false
 ---
 ## К изучению
 
-- [X] История Spring от Немчинского: https://www.youtube.com/watch?v=lY69oEm71BE
-- [ ] Официальный сайт: https://spring.io/
-- [X] Видео от Алишева: https://www.youtube.com/watch?v=5ePo08sqcpk&list=PLAma_mKffTOR5o0WNHnY0mTjKxnCgSXrZ
-- [ ] Спринг-потрошитель: https://www.youtube.com/watch?v=BmBr5diz8WA
+- [X] [История Spring](https://www.youtube.com/watch?v=lY69oEm71BE) от Немчинского. Видео
+- [ ] [Официальный сайт](https://spring.io/)
+- [X] [Видео от Алишева](https://www.youtube.com/watch?v=5ePo08sqcpk&list=PLAma_mKffTOR5o0WNHnY0mTjKxnCgSXrZ)
+- [ ] [Спринг-потрошитель](https://www.youtube.com/watch?v=BmBr5diz8WA)

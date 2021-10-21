@@ -146,7 +146,7 @@ public class MyApp {
 ---
 ## К изучению
 
-- [X] IoC вики: https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F
-- [ ] Гайд по IoC на русском https://spring-projects.ru/guides/lessons/lesson-2/
-- [X] Что такое IoC:  https://www.javaworld.com/article/2071914/excellent-explanation-of-dependency-injection--inversion-of-control-.html
-- [ ] Мартин Фаулер о Dependency Injection: https://martinfowler.com/articles/injection.html
+- [X] [IoC вики](https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F)
+- [ ] [Гайд по IoC](https://spring-projects.ru/guides/lessons/lesson-2/) на русском 
+- [X] [Что такое IoC](https://www.javaworld.com/article/2071914/excellent-explanation-of-dependency-injection--inversion-of-control-.html) 
+- [ ] Мартин Фаулер о [Dependency Injection](https://martinfowler.com/articles/injection.html)

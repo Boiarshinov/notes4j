@@ -22,4 +22,4 @@ Spring позаимствовал эту идею у сборщика Ant.
 
 ---
 ## К изучению
-- [ ] Javadoc на класс `AntPathMatcher`: https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/AntPathMatcher.html
+- [ ] [Javadoc](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/AntPathMatcher.html) на класс `AntPathMatcher` 

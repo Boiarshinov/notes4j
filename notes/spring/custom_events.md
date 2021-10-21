@@ -232,6 +232,6 @@ Intellij IDEA помечает все места в коде, где публи�
 ---
 ## К изучению
 - [X] Javadoc на классы
-- [X] Статья на Baeldung: https://www.baeldung.com/spring-events
-- [X] Статья на русском: https://springgears.com/spring-events/
-- [ ] Стандартные спринговые события. Baeldung: https://www.baeldung.com/spring-context-events
+- [X] [Статья на Baeldung](https://www.baeldung.com/spring-events)
+- [X] [Статья на русском](https://springgears.com/spring-events/)
+- [ ] [Стандартные спринговые события](https://www.baeldung.com/spring-context-events) Baeldung

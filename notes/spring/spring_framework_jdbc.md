@@ -62,4 +62,4 @@ public Optional<Cat> getById(long id) {
 ---
 ## К изучению
 
-- [] Официальная документация: https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#jdbc
+- [ ] [Официальная документация](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#jdbc)

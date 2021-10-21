@@ -73,4 +73,4 @@ public class AppConfig {
 ## К изучению:
 
 - [X] Javadoc на аннотацию
-- [X] Baeldung: https://www.baeldung.com/spring-scheduled-tasks
+- [X] [Гайд](https://www.baeldung.com/spring-scheduled-tasks) на Baeldung

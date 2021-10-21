@@ -7,8 +7,6 @@ draft: false
 
 **Spring Email**
 
-<mark>Дать ссылку на мою статью или скопировать сюда касающееся</mark>
-
 Библиотека основана на библиотеке Jakarta Mail.
 
 Основная задача библиотеки - упростить отправку сообщений из Java-приложений.
@@ -25,5 +23,6 @@ draft: false
 ---
 ## К изучению
 
-- [ ] Guide by Baeldung: https://www.baeldung.com/spring-email
-- [ ] Официальная документация: https://docs.spring.io/spring/docs/5.1.18.BUILD-SNAPSHOT/spring-framework-reference/integration.html#mail
+- [X] Моя [статья про работу с электронной почтой из Java приложений](https://habr.com/ru/post/526162/)
+- [ ] [Guide](https://www.baeldung.com/spring-email) on Baeldung: 
+- [ ] [Официальная документация](https://docs.spring.io/spring/docs/5.1.18.BUILD-SNAPSHOT/spring-framework-reference/integration.html#mail)

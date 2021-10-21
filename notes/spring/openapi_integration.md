@@ -18,4 +18,4 @@ Swagger - туллинг вокруг OpenAPI, генерирующий html-с�
 ---
 ## К изучению
 
-- [X] Разница между OpenAPI и Swagger: https://swagger.io/blog/api-strategy/difference-between-swagger-and-openapi/
+- [X] [Разница между OpenAPI и Swagger](https://swagger.io/blog/api-strategy/difference-between-swagger-and-openapi/)
