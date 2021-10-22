@@ -16,4 +16,4 @@ draft: true
 
 ---
 ## К изучению
-- [ ] Основы JAX-RS: https://habr.com/ru/post/140181/
+- [ ] [Основы JAX-RS](https://habr.com/ru/post/140181/)

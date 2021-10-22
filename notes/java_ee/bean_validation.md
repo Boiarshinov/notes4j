@@ -445,13 +445,14 @@ public class AgentController {
 
 ---
 ## К изучению
-- [ ] Официальная документация: https://beanvalidation.org/
-- [X] Github страничка Hibernate Validator: https://github.com/hibernate/hibernate-validator/
+- [ ] [Официальная документация](https://beanvalidation.org/) на Bean Validation. Не слишком понятная. Вместо нее лучше читать доку на Hibernate Validator
+- [X] [Официальная документация](https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/) на Hibernate Validator
+- [X] [Github](https://github.com/hibernate/hibernate-validator/) страничка Hibernate Validator
 - [X] Курс Spring & Hibernate for Beginners на Udemy
-- [X] Интеграция Bean Validation и спринговых Rest-контроллеров: https://www.baeldung.com/spring-validate-requestparam-pathvariable
-- [ ] Документация на спринговую валидацию: https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#validation
-- [X] Устаревшая статья с множеством ошибок: https://habr.com/ru/post/424819/
-- [X] Статья про Bean Validation и его интеграцию со Spring Boot: https://habr.com/ru/post/536612/
+- [X] [Интеграция Bean Validation и спринговых Rest-контроллеров](https://www.baeldung.com/spring-validate-requestparam-pathvariable)
+- [ ] [Документация на спринговую валидацию](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#validation)
+- [X] [Устаревшая статья с множеством ошибок](https://habr.com/ru/post/424819/)
+- [X] [Статья](https://habr.com/ru/post/536612/) про Bean Validation и его интеграцию со Spring Boot
 
 ## Интересные ресурсы:
 

@@ -40,4 +40,4 @@ Java EE появилась в 1999 году.
 ---
 ## К изучению
 
-- [X] Кратко про Java EE: https://metanit.com/java/javaee/1.1.php
+- [X] [Кратко про Java EE](https://metanit.com/java/javaee/1.1.php)
