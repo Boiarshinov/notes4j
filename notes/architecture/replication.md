@@ -2,6 +2,7 @@
 title: "Репликация"
 tags:
   - database
+  - distributed_system
 draft: false
 ---
 
@@ -59,7 +60,7 @@ read_count + write_count > total_count
 | --- | --- |
 | FIFO Total order | Детерминированность обновлений |
 | Causal | Детерминированность обновлений, конкурентные обновления коммутативны (`f(g(x)) = g(f(x))`) |
-| Reliable | Детерминированность обновлений, все обновления коммутативны (`f(g(x)) = g(f(x))`) |
+| Reliable | Детерминированность обновлений, все обновления коммутативны |
 
 ### State machine replication
 State machine replication - это способ репликации, при котором:
