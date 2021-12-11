@@ -5,8 +5,17 @@ tags:
 draft: false
 ---
 
-**JSON** - это стандарт обмена данными между сервером и web-страницей с JavaScript, в котором поля объектов представляются в формате ключ-значение:
+**JSON** - это один из самых популярных формат представления данных.
+Зачастую он используется для обмена данными между клиентом (чаще всего web-страницей) и сервером.
+Формат обрел популярность за счет того, что он является человекочитаемым (то бишь текстовым) и при этом достаточно компактным.
 
+Расшифровывается JSON, как JavaScript Object Notation, т.е. представление объектов в языке JavaScript. 
+Разработал его Дуглас Крокфорд - один из лидеров развития JavaScript.
+
+В JavaScript очень легко работать в JavaScript, поэтому формат стал так популярен в качестве транспорта между web-клиентами и сервером.
+Также его популярность вызвана тем, что его ближайший конкурент - текстовый формат [XML](xml.md) - излишне многословен.
+
+Пример представления объекта в JSON:
 ```json
 {
 	"name": "ArtyB",
@@ -18,14 +27,14 @@ draft: false
 ---
 ## Форматы JSON
 
-| **Тип** | **Что это** | **Пример** |
-| --- | --- | --- |
-| String | Строка | `"Text"` |
-| Number | Число | `5`, `5.5`, `-8` |
-| Boolean | Булево значение | `true`, `false` |
-| Null | null | `null` |
-| Object | Объект | `{"param1": "value1", "param2": "value2"}` |
-| Array | Массив | `[5, 5.8, -34]` |
+| **Тип** | **Что это**     | **Пример**                                 |
+| ------- | --------------- | ------------------------------------------ |
+| String  | Строка          | `"Text"`                                   |
+| Number  | Число           | `5`, `5.5`, `-8`                           |
+| Boolean | Булево значение | `true`, `false`                            |
+| Null    | null            | `null`                                     |
+| Object  | Объект / Мапа   | `{"param1": "value1", "param2": "value2"}` |
+| Array   | Массив          | `[5, 5.8, -34]`                            |
 
 Значения параметров объектов могут быть любого типа (даже массивом)
 
@@ -35,14 +44,14 @@ draft: false
 
 ```json
 "map": {
-    "key1": {
-        "value_field_1": "string",
-        "value_field_2": 5
-    },
-    "key2": {
-        "value_field_1": "string",
-        "value_field_2": 123
-    }
+  "key1": {
+    "value_field_1": "string",
+    "value_field_2": 5
+  },
+  "key2": {
+    "value_field_1": "string",
+    "value_field_2": 123
+  }
 }
 ```
 
@@ -52,12 +61,23 @@ draft: false
 Схема JSON - это аналог XML-схем, которая позволяет валидировать JSON
 <mark>//дописать</mark>
 
+
+---
+## Инструменты для работы с JSON
+В Java для работы с JSON существуют следующие библиотеки:
+- [Jackson](../external_lib/jackson.md) - самая популярная библиотека, имеющая множество интеграций с различными фреймворками
+- GSON - библиотека от Google
+- JSON-B - [Java EE](../java_ee/java_ee.md) стандарт, который хотел прийти на замену Jackson, но из-за того, что он опоздал лет на 5, популярности он не обрел
+- JsonPath - библиотека, позволяющая делать поиск по JSON. Хорошо подходит для тестирования. Служит не заменой, а дополнением к вышеперечисленным библиотекам.
+
+
 ---
 ## К изучению
 
-- [X] Вики про JSON:  https://ru.wikipedia.org/wiki/JSON
-- [X] Англоязычный туториал по JSON:  https://restfulapi.net/introduction-to-json/
-- [ ] Официальный сайт по JSON-схемам http://json-schema.org/
-- [X] Введение в JSON-схемы (читать до середины):  https://habr.com/ru/post/276305/
-- [X] JSON-схемы для генерации POJO:  https://javarush.ru/groups/posts/1995-json-skhema-zachem-i-komu-ona-nuzhna
-- [ ] Видео про кодогенерацию:  https://www.youtube.com/watch?v=9mF0zFW7cDQ&index=8&list=PLsVTVVvrKX9t7a0_KpweUSfEt7XeRDzM-
+- [X] [Вики](https://ru.wikipedia.org/wiki/JSON) про JSON
+- [X] [Англоязычный туториал](https://restfulapi.net/introduction-to-json/) по JSON
+- [ ] [JSON-схемы](http://json-schema.org/)
+- [X] [Введение в JSON-схемы](https://habr.com/ru/post/276305/) (читать до середины)
+- [X] [JSON-схемы для генерации POJO](https://javarush.ru/groups/posts/1995-json-skhema-zachem-i-komu-ona-nuzhna)
+- [ ] [Видео про кодогенерацию](https://www.youtube.com/watch?v=9mF0zFW7cDQ&index=8&list=PLsVTVVvrKX9t7a0_KpweUSfEt7XeRDzM-)
+- [X] [Гайд](https://it-simulator.com/#/article/743) по выбору джавового Json парсера с обзором истории формата и бибилиотек для работы с ним
