@@ -88,6 +88,13 @@ CREATE TABLE IF NOT EXISTS table_name (
 - `[CONSTRAINT [symbol]] FOREIGN KEY`
 - `INDEX index_name (column)` - индексирует колонку, указанную в скобках
 
+Существует возможность создавать таблицы на основе существующих.
+При этом можно отфильтровать данные из существующей таблицы, заджойнить ее с чем-либо и пр.
+```sql
+CREATE TABLE temp_table AS
+SELECT user_name, user_type FROM user WHERE user_orders > 15;
+```
+
 
 ---
 ## Манипуляции с индексами

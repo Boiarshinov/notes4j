@@ -127,6 +127,12 @@ SELECT category, author, SUM(spend) FROM expenses
 GROUP BY category, author;
 ```
 
+Также группировка может проводиться по вычисляемым выражениям, вместо колонок:
+```sql
+SELECT * FROM order
+GROUP BY SQRT(price), DATEDIFF(updated_at, created_at);
+```
+
 `HAVING` - позволяет задать условия фильтрации для групп.
 После ключевого слова передается предикат, так же как после `WHERE`.
 ```sql
