@@ -132,23 +132,24 @@ CREATE DOMAIN sale_status AS VARCHAR(45)
 
 ---
 ## Внешний ключ
+Внешний ключ задается с помощью следующего синтаксиса:
 ```sql
-[CONSTRAINT [key_name]] FOREIGN KEY [index_name] (index_col_name, ...) reference_definition
+[CONSTRAINT [key_name]] FOREIGN KEY [index_name] (index_col_name, ...) <reference_definition>
 ```
 
-- Связывание - reference_definition:
+где `reference_definition` - это описание связывания.
 
 `REFERENCES table_name (index_column_name, ...)` - та колонка в той таблице, от которой будет зависеть указанная ранее колонка
 
-`[ON DELETE reference_option]` - что будет происходить со значениями в колонке при удалении внешнего ключа
+`[ON DELETE <reference_option>]` - что будет происходить со значениями в колонке при удалении записи, на которую ссылается внешний ключ
 
-`[ON UPDATE reference_option]` - что будет происходить со значениями в колонке при изменении внешнего ключа
+`[ON UPDATE <reference_option>]` - что будет происходить со значениями в колонке при изменении записи, на которую ссылается внешний ключ
 
-- Варианты
-    - `RESTRICT` - (рекомендуется для DELETE) запрещает изменять связанные данные
+- Варианты `reference_option`
+    - `RESTRICT` - (рекомендуется для DELETE) запись, на которую ссылается внешний ключ, невозможно будет изменить или удалить
     - `CASCADE` - (рекомендуется для UPDATE) меняет каскадно, т.е. если во внешнем ключе изменилось значение, то оно меняется и в нашем атрибуте
     - `SET NULL` - устанавливаются NULL
-    - `NO ACTION` - ничего не происходит (не рекомендуется к использованию)
+    - `NO ACTION` - ничего не происходит 
 
 ```sql
 ALTER TABLE `shtat`
@@ -157,6 +158,7 @@ REFERENCES `depart` (`id`)
 ON DELETE RESTRICT
 ON UPDATE CASCADE;
 ```
+
 
 ---
 ## Удаление данных из таблицы

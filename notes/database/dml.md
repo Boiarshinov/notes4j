@@ -81,6 +81,11 @@ SET book.amount = book.amount + supply.amount, book.price = (book.price + supply
 WHERE book.author = supply.author AND book.title = supply.title;
 ```
 
+Также обновлять данные можно в нескольких таблицах вместе с их джойном:
+```sql
+
+```
+
 
 ---
 ## Удаление DELETE
