@@ -5,29 +5,41 @@ tags:
 draft: false
 ---
 
-**JDBC** - Java DataBase Connectivity - это библиотека для работы с базами данных
+**JDBC** - Java DataBase Connectivity - это библиотека для работы с базами данных.
 
-JDBC представлен двумя библиотеками: `java.sql` и `javax.sql`
+Библиотека JDBC предоставляет набор верхнеуровневых абстракций, которые позволяют одинаковым образом работать с различными СУБД.
+Для работы с конкретной СУБД необходимо подключить к проекту ее драйвер.
+Данный драйвер реализует абстракции, объявленные в JDBC, и по сути является адаптером между JDBC-интерфейсом и интерфейсом СУБД.
 
-![](https://javarush.ru/api/1.0/rest/images/1311743/b136eece-fefb-40bb-bf02-932d772b929a?size=1024)
+![JDBC drivers schema](../../images/src/jdbc.drawio.svg)
 
-Для использования функционала jdbc необходимо подключить драйвер своей СУБД
+Подключение к большинству СУБД происходит через протокол TCP.
+Из-за этого создание соединения - достаточно затратная операция.
+Поэтому рекомендуется использовать пулы соединений. 
+Существует несколько реализаций пулов соединений:
+- С3P0 - один из самых популярных
+- Hikari - самый быстрый пул соединений
+
+JDBC представлен двумя пакетами: `java.sql` и `javax.sql`.
+Почему их два?
+Так сложилось по историческим причинам.
+Первоначально пакет `javax.sql` предназначался для Java EE, но с 3 версией стандарта JDBC он стал частью Java SE.
 
 ---
 ## Выражения
 
-- Statement - SQL выражение, которое не содержит параметров
-- Prepared statement - подготовленное SQL выражение, содержащее параметры
-- Callable Statement - SQL выражение, позволяющее получить данные
+- `Statement` - SQL выражение, которое не содержит параметров
+- `Prepared statement` - подготовленное SQL выражение, содержащее параметры
+- `Callable Statement` - SQL выражение, позволяющее получить данные
 
 ---
 ## Основные классы JDBC
 
-- DriverManager - основная задача - подгрузить драйверы и подсоединиться к базе данных
-- Connection (интерфейс) -
+- `DriverManager` - основная задача - подгрузить драйверы и подсоединиться к базе данных
+- `Connection` (интерфейс) -
 
 ---
-## DriverManager
+## `DriverManager`
 
 Методы:
 
@@ -35,7 +47,7 @@ JDBC представлен двумя библиотеками: `java.sql` и `
 - `static Connection getConnection(URL)` - то же, что и предыдущий, но в URL должны быть переданы юзер и пароль в качестве параметров URL
 
 Переданный URL содержит сведения о драйвере, порте и пр.
-Cтруктура и пример URL:
+Структура и пример URL:
 ```url
 jdbc:<driverName>:[//host[:port/]]<databaseName>
 
@@ -67,10 +79,7 @@ CallableStatement call = connection.prepareCall("{call stored_procedure_name(?, 
 
 Рекомендуется на каждый вызов создавать новый Connection (либо брать из пула), другими словами: каждый метод в любом классе DAO должен получать свой выделенный Connection.
 
-Так как создание `Connection` - достаточно затратная операция, для нагруженных систем рекомендуется использовать пулы соединений. Существует несколько реализаций пулов соединений:
 
-- С3P0 - один из самых популярных
-- Hikari - самый быстрый пул соединений
 
 ---
 ## Statement
@@ -112,6 +121,7 @@ SELECT * FROM users WHERE users.id = :id; # id - это параметр
 
 ---
 ## Класс `CallableStatement`
+
 Наследуется от `PreparedStatement`.
 
 Класс предназначен для вызова хранимых процедур. Параметры, которые необходимо передать в хранимую процедуру, передаются с помощью вопросительного знака.
@@ -213,8 +223,8 @@ statement.execute();
 --
 ## К изучению
 
-- [X] https://javarush.ru/groups/posts/2172-jdbc-ili-s-chego-vsje-nachinaetsja
-- [X] Юрий Ткач:  https://www.youtube.com/watch?v=aje9gtFEyC4&list=PLB0276A0A62BDEF06&index=15
-- [ ] Немчинский рассказывает про типичные ошибки: https://www.youtube.com/watch?time_continue=1&v=flMFICpPfcI&feature=emb_title
-- [X] Преимущества пула соединений: https://habr.com/ru/post/194142/
-- [X] Мой пример применения пула соединений: https://github.com/Boiarshinov/JdbcConnectionPoolExample
+- [X] Полная, но сумбурная [статья](https://javarush.ru/groups/posts/2172-jdbc-ili-s-chego-vsje-nachinaetsja) про JDBC, транзакции, пулы и проч. 
+- [X] Видео про [JDBC](https://www.youtube.com/watch?v=aje9gtFEyC4&list=PLB0276A0A62BDEF06&index=15) от Юрия Ткача
+- [ ] Видео про [типичные ошибки](https://www.youtube.com/watch?time_continue=1&v=flMFICpPfcI&feature=emb_title) от Немчинского
+- [X] Статья про [преимущества пула соединений](https://habr.com/ru/post/194142/)
+- [X] [Мой пример](https://github.com/Boiarshinov/JdbcConnectionPoolExample) применения пула соединений
