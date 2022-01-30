@@ -83,7 +83,10 @@ WHERE book.author = supply.author AND book.title = supply.title;
 
 Также обновлять данные можно в нескольких таблицах вместе с их джойном:
 ```sql
-
+UPDATE book b
+JOIN buy_book bb USING(book_id)
+SET b.amount = b.amount - bb.amount
+WHERE buy_id = 5;
 ```
 
 
