@@ -147,10 +147,10 @@ SELECT * FROM users WHERE users.id = :id; # id - это параметр
 Для хранимой процедуры
 ```sql
 PROCEDURE `increase_salaries_for_department`(
-    IN current_department VARCHAR(45), IN increase_amount DECIMAL(10, 2))
+    IN current_department VARCHAR(45), IN increase_amount DECIMAL(10, 2))
 BEGIN
-    UPDATE employees SET salary = salary + increase_amount
-        WHERE department = current_department;
+  UPDATE employees SET salary = salary + increase_amount
+    WHERE department = current_department;
 END
 ```
 
@@ -228,3 +228,5 @@ statement.execute();
 - [ ] Видео про [типичные ошибки](https://www.youtube.com/watch?time_continue=1&v=flMFICpPfcI&feature=emb_title) от Немчинского
 - [X] Статья про [преимущества пула соединений](https://habr.com/ru/post/194142/)
 - [X] [Мой пример](https://github.com/Boiarshinov/JdbcConnectionPoolExample) применения пула соединений
+- [X] SO про [разницу](https://stackoverflow.com/questions/18212727) между `java.sql` и `javax.sql`
+- [X] SO про [связь между JDBC и TCP](https://stackoverflow.com/questions/838518)
