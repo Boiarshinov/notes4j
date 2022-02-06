@@ -50,6 +50,7 @@ draft: false
 - CompletableFuture
 - Класс StringJoiner
 - Оптимизация HashMap при большом количестве коллизий (подробнее см. [Map](collections/map.md))
+- Декодеры и энкодеры [Base64](../formats/base64.md)
 
 
 ### Java 9 (2017 г.)
