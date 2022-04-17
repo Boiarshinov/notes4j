@@ -6,7 +6,10 @@ tags:
 draft: false
 ---
 
-**JPA** - Java Persistence API - спецификация Java, которая устанавливает интерфейс для ORM, работающих с реляционными базами данных.
+# JPA
+
+**JPA** - Jakarta Persistence API - спецификация, которая устанавливает интерфейс для ORM, работающих с реляционными базами данных.
+До версии 3.0 называлась Java Persistence API.
 
 Основными понятиями JPA являются сущности (Entity) и типы-значения (Value Type).
 
@@ -46,8 +49,19 @@ JTA - Java Transaction API
 
 - Поддержка новых классов времени, добавленных в Java 8.
 
-* * *
+### JPA 3.0 - 2020 г.
 
+- JPA теперь расшифровывается как Jakarta Persistence API
+- Изменены названия всех пакетов на `jakarta`, вместо `javax`
+
+### JPA 3.1 - 2022 г.
+
+- `UUID` теперь считается базовым типом
+- новые функции в JPQL и Criteria API
+
+
+
+---
 ## Взаимодействие с БД
 
 Для обеспечения связи с БД и обращения с сущностями в JPA определены некоторые механизмы.
@@ -139,7 +153,8 @@ EntityManagerFactory factory = Persistence.createEntityManagerFactory("<persiste
 ## К изучению
 
 - [X] Документация на пакет `javax.persistence`
-- [X] Курс по Spring и Hibernate на Udemy (в части касающейся): https://www.udemy.com/course/spring-hibernate-tutorial
-- [ ] Доходчиво про JPA на русском: https://easyjava.ru/data/jpa/
-- [ ] Нововведения в версиях JPA: https://en.wikipedia.org/wiki/Java_Persistence_API#Version_history
+- [X] [Курс по Spring и Hibernate на Udemy](https://www.udemy.com/course/spring-hibernate-tutorial) (в части касающейся)
+- [ ] [Доходчиво про JPA на русском](https://easyjava.ru/data/jpa/)
+- [ ] [Нововведения в версиях JPA](https://en.wikipedia.org/wiki/Java_Persistence_API#Version_history)
 - [ ] Книга "Java Persistence API и Hibernate" в части касающейся
+- [X] [Release notes JPA 3.1](https://newsroom.eclipse.org/eclipse-newsletter/2022/march/what%E2%80%99s-new-jakarta-persistence-31)
