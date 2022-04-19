@@ -21,7 +21,7 @@ draft: false
 ## Инструменты для измерения
 
 Java:
-- JaCoCo - самая популярная
+- [JaCoCo](../tools/jacoco.md) - самый популярный для всех JVM-based языков
 - Cobertura
 - OpenClover
 
