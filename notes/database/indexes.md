@@ -13,22 +13,19 @@ draft: false
 
 При добавлении новых записей в таблицу / удалении старых записей индексы будут пересчитываться автоматически.
 
-Индексы не являются принадлежностью таблицы, они хранятся отдельно от нее.
-
 Так как индексы являются отдельными структурами данных, их наличие увеличивает объем хранимых данных.
 
-Индексы распределяются по дереву
-
-Виды индексов:
-- кластерный индекс - упорядоченное дерево, на листьях которого находятся сами данные
-- некластерные индексы - словарь, в котором в качестве ключа используется хэш кортежа.
+По типу хранения индексы делятся на:
+- кластерные - лежат вместе с данными
+- некластерные - лежат отдельно от данных, содержат в себе указатели на данные в основном файле данных
 
 Кластерный индекс может быть только один у каждой таблицы.
-Некластерные индексы работают медленнее, чем кластерные
+Если у таблицы есть первичный ключ, то кластерный индекс строится по нему.
+Кластерные индексы чаще всего представляют собой B-дерево, сложность поиска по которому - O(log(n))
 
-Кластерные индексы представляют собой B-дерево, сложность поиска по которому - O(log(n))
-
+Некластерные индексы работают медленнее, чем кластерные.
 Некластерные индексы представляют собой хэш-таблицу, сложность поиска по которой зависит от оптимальности хэш-функции и может колебаться от O(1) до O(n)
+
 
 ### Составные индексы
 
@@ -36,7 +33,6 @@ draft: false
 
 Такие индексы будут работать даже при выборке только по одному из индексированных столбцов, но намного хуже, чем одиночный индекс.
 
-Необходимость создания составных индексов крайне редка.
 
 ### Частичные индексы
 
@@ -126,17 +122,18 @@ DROP INDEX <index_name>
 ---
 ## К изучению
 
-- [X] Документация на индексы в PostgreSQL: https://postgrespro.ru/docs/postgresql/10/indexes
-- [ ] Обзор типов индексов: https://habr.com/ru/post/102785/
-- [ ] Вопросы про индексы к собеседованию: https://habr.com/ru/post/247373/
-- [X] Вся правда об индексах в PostgreSQL. Видео: https://www.youtube.com/watch?v=aaecM4wKdhY
-- [ ] Индексы в PostgreSQL. Часть 1: https://habr.com/ru/company/postgrespro/blog/326096/
-- [ ] Индексы в PostgreSQL. Часть 2: https://habr.com/ru/company/postgrespro/blog/326106/
-- [ ] Индексы в PostgreSQL. Часть 3: https://habr.com/ru/company/postgrespro/blog/328280/
-- [ ] Индексы в PostgreSQL. Часть 4: https://habrahabr.ru/company/postgrespro/blog/330544/
-- [ ] Индексы в PostgreSQL. Часть 5: https://habr.com/ru/company/postgrespro/blog/333878/
-- [ ] Индексы в PostgreSQL. Часть 6: https://habr.com/ru/company/postgrespro/blog/337502/
-- [ ] Индексы в PostgreSQL. Часть 7: https://habr.com/ru/company/postgrespro/blog/340978/
-- [ ] Индексы в PostgreSQL. Часть 8: https://habr.com/ru/company/postgrespro/blog/343488/
-- [ ] Индексы в PostgreSQL. Часть 9: https://habr.com/ru/company/postgrespro/blog/346460/
-- [ ] Индексы в PostgreSQL. Часть 10: https://habr.com/ru/company/postgrespro/blog/349224/
+- [ ] [Обзор типов индексов](https://habr.com/ru/post/102785/)
+- [ ] [Вопросы про индексы к собеседованию](https://habr.com/ru/post/247373/)
+- [X] Отличная статья про [отличия между кластерными и некластерными индексами](https://habr.com/ru/post/141767/)
+- [X] Видео [Вся правда об индексах в PostgreSQL](https://www.youtube.com/watch?v=aaecM4wKdhY)
+- [X] [Документация на индексы в PostgreSQL](https://postgrespro.ru/docs/postgresql/10/indexes)
+- [ ] Индексы в PostgreSQL. [Часть 1](https://habr.com/ru/company/postgrespro/blog/326096/)
+- [ ] Индексы в PostgreSQL. [Часть 2](https://habr.com/ru/company/postgrespro/blog/326106/)
+- [ ] Индексы в PostgreSQL. [Часть 3](https://habr.com/ru/company/postgrespro/blog/328280/)
+- [ ] Индексы в PostgreSQL. [Часть 4](https://habrahabr.ru/company/postgrespro/blog/330544/)
+- [ ] Индексы в PostgreSQL. [Часть 5](https://habr.com/ru/company/postgrespro/blog/333878/)
+- [ ] Индексы в PostgreSQL. [Часть 6](https://habr.com/ru/company/postgrespro/blog/337502/)
+- [ ] Индексы в PostgreSQL. [Часть 7](https://habr.com/ru/company/postgrespro/blog/340978/)
+- [ ] Индексы в PostgreSQL. [Часть 8](https://habr.com/ru/company/postgrespro/blog/343488/)
+- [ ] Индексы в PostgreSQL. [Часть 9](https://habr.com/ru/company/postgrespro/blog/346460/)
+- [ ] Индексы в PostgreSQL. [Часть 10](https://habr.com/ru/company/postgrespro/blog/349224/)
