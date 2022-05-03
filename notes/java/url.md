@@ -65,6 +65,6 @@ URL url = new URL("https://en.wikipedia.org/wiki/Main_Page");
 ---
 **К изучению:**
 
-- [ ] https://ru.wikipedia.org/wiki/URL
-- [X]Способы построения URL в Java с помощью сторонних библиотек: https://stackoverflow.com/questions/26177749/how-can-i-append-a-query-parameter-to-an-existing-url/37062788
+- [ ] [Wiki URL](https://ru.wikipedia.org/wiki/URL)
+- [X] Способы построения URL в Java с помощью сторонних библиотек: https://stackoverflow.com/questions/26177749/how-can-i-append-a-query-parameter-to-an-existing-url/37062788
 - [ ] Разница между URI и URL в Java: https://www.baeldung.com/java-url-vs-uri
