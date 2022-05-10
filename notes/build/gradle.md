@@ -118,3 +118,4 @@ task print {
 ---
 ## К изучению
 - [ ] Документация на Gradle: https://docs.gradle.org/current/userguide/getting_started.html
+- [ ] Доклад [Евгений Борисов - Power of Gradle](https://www.youtube.com/watch?v=NZJTYPLb0iE&ab_channel=JUG.ru) 2013 г.
