@@ -115,4 +115,5 @@ services:
 ---
 ## К изучению
 
+- [ ] [Официальная документация](https://docs.docker.com/compose/)
 - [X] [Курс Docker Mastery](https://www.udemy.com/course/docker-mastery/) на Udemy в части касающейся
