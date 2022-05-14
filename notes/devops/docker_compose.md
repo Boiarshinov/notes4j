@@ -28,7 +28,7 @@ services:
     image: image/name # Название образа
     depends_on: # Зависимость между контейнерами. Текущий контейнер будет запущен только после того, как поднимутся все, от кого он зависит
       - service2name
-    enviroment: # Переменные окружения
+    environment: # Переменные окружения
       key: value
     volumes: # Задаем персистентные хранилища
       - .:/dir # Здесь точка является алиасом для $(pwd)
@@ -115,4 +115,5 @@ services:
 ---
 ## К изучению
 
+- [ ] [Официальная документация](https://docs.docker.com/compose/)
 - [X] [Курс Docker Mastery](https://www.udemy.com/course/docker-mastery/) на Udemy в части касающейся
