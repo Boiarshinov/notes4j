@@ -57,6 +57,12 @@ height = floor(log of base 1/p (n))
 ```
 
 
+## Применение
+Skip List'ы используются в современных СУБД:
+- [Apache Cassandra](../database/cassandra.md) для хранения вторичных индексов в memtable
+- MongoDB в ядре WiredTiger
+
+
 ---
 ## К изучению
 - [ ] [Wiki](https://en.wikipedia.org/wiki/Skip_list)
