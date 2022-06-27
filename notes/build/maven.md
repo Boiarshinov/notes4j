@@ -62,13 +62,15 @@ Apache Maven - (идиш - Собиратель знаний) инструмен
 </dependecies>
 ```
 
-## Область видимости зависимости
+### Область видимости
 
 К каждой зависимости может быть приписан такой необязательный элемент, как `<scope>`
 - `compile` - зависимость используется только при компиляции и не будет включена в jar (war).
 - `runtime` - зависимость не нужна при компиляции, но требуется при работе приложения.
 - `provided` - зависимость не будет добавлена в jar (war). Такая область видимости прописывается, если необходимые классы предоставляются, например, веб-сервером.
 - `test` - зависимость используется только на этапе тестирования.
+- `system` - то же, что и `provided`, но при этом необходимо дополнительно подложить библиотеку в проект и указать путь до нее. В настоящее время эта область видимости объявлена устаревшей
+- `import` - позволяет подтянуть все зависимости, объявленные в другом `pom.xml`
 
 ---
 ## Плагины
@@ -149,11 +151,12 @@ Apache Maven - (идиш - Собиратель знаний) инструмен
 
 ---
 ## К изучению:
-- [X] Правила наименования проектов: https://maven.apache.org/guides/mini/guide-naming-conventions.html
-- [X] Русскоязычный сайт, посвященный Maven: https://www.apache-maven.ru/index.html
-- [X] Простым языком на русском: https://java-course.ru/begin/maven_first/
-- [X] Основы Maven (видео) ч.1: https://www.youtube.com/watch?v=-Ry_s9LYkio
-- [ ]Основы Maven (видео) ч.2: https://www.youtube.com/watch?v=xdgJmZ0Alzo
-- [ ] Многомодульные проекты в Maven: https://easyjava.ru/ecosystem/buildtools/maven/mnogomodulnye-proekty-maven/
-- [ ] Гайд по Maven от Oracle: https://blogs.oracle.com/developers/mastering-maven-the-series
-- [ ] Цикл статей про Maven от Java чемпиона: https://cguntur.me/2020/05/20/understanding-apache-maven-the-series
+- [X] [Правила наименования проектов](https://maven.apache.org/guides/mini/guide-naming-conventions.html)
+- [X] [Русскоязычный сайт](https://www.apache-maven.ru/index.html), посвященный Maven
+- [X] [Простым языком на русском](https://java-course.ru/begin/maven_first/)
+- [X] Видео [Основы Maven ч.1](https://www.youtube.com/watch?v=-Ry_s9LYkio)
+- [ ] Видео [Основы Maven ч.2](https://www.youtube.com/watch?v=xdgJmZ0Alzo)
+- [ ] [Многомодульные проекты](https://easyjava.ru/ecosystem/buildtools/maven/mnogomodulnye-proekty-maven/)
+- [ ] [Гайд от Oracle](https://blogs.oracle.com/developers/mastering-maven-the-series)
+- [ ] [Цикл статей про Maven](https://cguntur.me/2020/05/20/understanding-apache-maven-the-series) от Java чемпиона
+- [X] [Области видимости зависимостей](https://www.baeldung.com/maven-dependency-scopes)
