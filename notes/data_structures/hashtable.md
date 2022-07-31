@@ -93,3 +93,4 @@ h2(k) = 1 + ( h1(k) / size ) % (size - 1)
 ---
 ## К изучению
 - [X] Лекция 5 курса [Data Structures](https://stepik.org/course/579/syllabus)
+- [ ] [White Paper](https://bigdata.uni-saarland.de/publications/p249-richter.pdf) со сравнением различных устройств хэш-таблиц
