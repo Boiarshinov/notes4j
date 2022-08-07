@@ -82,53 +82,53 @@ draft: false
 - [ ] DevOps
 - [ ] Книга "Философия DevOps"
 
-- [ ] Java 8 - Stream API
-- [X] Пройти курс на Stepic по функционалке
-- [X] Прочитать книгу
-- [X] Написать про Optional
-- [ ] Подробнее изучить коллекторы
-- [X] Доклад по параллельным стримам
-- [ ] Доклад по коллекторам
+- [X] Java 8 - Stream API
+  - [X] Пройти курс на Stepic по функционалке
+  - [X] Прочитать книгу
+  - [X] Написать про Optional
+  - [ ] Подробнее изучить коллекторы
+  - [X] Доклад по параллельным стримам
+  - [ ] Доклад по коллекторам
 
 - [X] Электронная почта
-- [X] Теоретические основы
-- [X] Jakarta Mail
-- [X] Spring Email
-- [X] Выступить с докладом
-- [X] Оформить статью на хабр: https://github.com/Boiarshinov/learning-mail
-- [X] Выложить статью на хабр
+  - [X] Теоретические основы
+  - [X] Jakarta Mail
+  - [X] Spring Email
+  - [X] Выступить с докладом
+  - [X] Оформить статью на хабр: https://github.com/Boiarshinov/learning-mail
+  - [X] Выложить статью на хабр
 
 - [ ] Class Loader / Class Path
 
 - [ ] REST
-- [X] Матерость веб-сервисов
-- [X] Spring REST
-- [ ] RestTemplates
+  - [X] Матерость веб-сервисов
+  - [X] Spring REST
+  - [ ] RestTemplates
 
 - [ ] Авторизация в Web
-- [ ] Разобраться в различных видах авторизации: OAuth1, OAuth2 и т.д.
-- [X] Настроить автоматическую авторизацию в Postman
+  - [ ] Разобраться в различных видах авторизации: OAuth1, OAuth2 и т.д.
+  - [X] Настроить автоматическую авторизацию в Postman
 
 - [ ] Тестирование
-- [X] Mockito
-- [X] TestNG
-- [X] JUnit
-- [ ] PowerMock
-- [ ] Книга по тестированию - S. Freeman "Growing Object-Oriented Software, Guided by Tests"
+  - [X] Mockito
+  - [X] TestNG
+  - [X] JUnit
+  - [ ] PowerMock
+  - [ ] Книга по тестированию - S. Freeman "Growing Object-Oriented Software, Guided by Tests"
 
 - [ ] AspectJ
-- [X] Пройти курс на Udemy: Spring And Hibernate for Begginers
-- [ ] Документация на библиотеку
-- [ ] Книга AspectJ in Action
+  - [X] Пройти курс на Udemy: Spring And Hibernate for Begginers
+  - [ ] Документация на библиотеку
+  - [ ] Книга AspectJ in Action
 
 - [ ] Аннотации
-- [X] Создание собственных аннотаций
-- [ ] Использование собственных аннотаций
+  - [X] Создание собственных аннотаций
+  - [ ] Использование собственных аннотаций
+  - [ ] Annotation Processing
 
 - [X] Время в Java
-- [X] Date
-- [X] Нововведения в  Java 8 / JodaTime (см. https://vertex-academy.com/tutorials/ru/new-date-time-api-java8/)
-- [ ] Сделать доклад
+  - [X] Date
+  - [X] Нововведения в  Java 8 / JodaTime (см. https://vertex-academy.com/tutorials/ru/new-date-time-api-java8/)
 
 - [ ] Maven
 - [ ] Плагины

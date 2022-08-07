@@ -7,9 +7,9 @@ draft: false
 
 # OpenAPI
 
-OpenAPI - это стандарт описания HTTP API (и ему подобных).
+OpenAPI - это стандарт описания RESTful HTTP API.
 
-Описание API производится с помощью синтаксиса [JSON](../formats/json.md) или YAML.
+Описание API производится с помощью синтаксиса [JSON](../formats/json.md) или [YAML](../formats/yaml.md).
 Каждая версия спецификации OpenAPI имеет JSON-схему, описывающую ограничения файла с описанием API.
 
 ## Минутка истории

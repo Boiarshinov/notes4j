@@ -50,6 +50,7 @@ draft: false
 ### Snowflake id
 Система генерации уникальных идентификаторов, разработанная в Twitter в 2010 г.
 Первоначально Twitter генерировал идентификаторы с помощью сиквенса в MySQL, но с развитием продукта они перешли на Cassandra и встали перед необходимостью самостоятельно генерировать ключи.
+Также Twitter искал способ каким образом можно упорядочить твиты по времени без введения отдельного поля с меткой времени.
 Для генерации идентификаторов было написано отдельное серверное приложение, которое может быть развернуто в виде кластера, отслеживаемого с помощью Apache Zookeeper.
 
 Идентификаторы задаются с помощью 64-битного числа:
@@ -59,7 +60,7 @@ draft: false
 ```
 Идентификатор разбит на 3 группы (+1 на первый бит):
 - Первый бит оставлен незаполненным, чтобы в системах с `signed int64` идентификатор не отображался в виде отрицательного числа;
-- `timestamp millis` - временная метка в миллисекундах от Epoch Date;
+- `timestamp millis` - временная метка в миллисекундах. Т.к. количество бит меньше стандартного для timestamp (64 бит), разработчикам пришлось сдвинуть нулевую отметку времени ближе к современности;
 - `node id` - идентификатор ноды, сгенерировавшей идентификатор;
   - 5 бит на идентификатор ЦОДа
   - 5 бит на идентификатор ноды в ЦОДе
@@ -87,7 +88,36 @@ Instagram вдохновлялся примером Twitter в части стр
 
 
 ### ULID
-<mark>todo</mark>
+ULID - это развитие идей, заложенный в UUID.
+ULID состоит из двух частей:
+- 48 бит на метку времени
+- 80 бит на рандомную часть
+
+ULID кодируется с помощью алфавита Base32 и потому в строковом представлении занимает 26 символов
+
+
+### KSUID
+K-Sortable Unique Identifier
+KSUID состоит из двух частей:
+- 32 бит на метку времени с шагом в 1 секунду
+- 128 бит на рандомную часть
+
+Итого 160 бит, что больше остальных решений.
+
+KSUID кодируется с помощью Base62 в 27 символов.
+
+
+### Flake
+Flake - это еще одно серверное решение, вдохновленное Snowflake Id.
+В отличие от Snowflake Flake не требует дополнительного координатора для выбора идентификатора ноды.
+Идентификатором ноды является MAC-адрес сервера.
+
+Flake состоит из трех частей:
+- 64 бит на метку времени с шагом в миллисекунду
+- 48 бит на идентификатор ноды. Для этого используется MAC-адрес узла
+- 16 бит на порядковый номер в пределах одной миллисекунды
+
+Flake подходит только для разворачивания на железных серверах, т.к. он завязан на MAC-адрес.
 
 
 ### Проблема раскрытия внутренней реализации
@@ -141,13 +171,16 @@ https://socnet.com/id5555/album/2
 
 ### Сравнение популярных способов генерации
 
-| Способ генерации | bits | sortable | incapsulated |
-|---|---|---|---|
-| UUID | 128 b | no | yes |
-| Snowflake | 64 b | yes | no |
-| Instagram Id | 64 b | yes | no |
-| ULID |  | yes | yes |
-| Hashids | | no | yes |
+| Способ генерации | bits | symbols | sortable | lib or app |
+|---|---|---|---|---|
+| UUID | 128 b | 36 | no | lib |
+| Snowflake | 64 b | | yes | app |
+| Instagram Id | 64 b | | yes | app |
+| ULID | 128 b | 26 | yes | lib |
+| NanoId | | 21 | | lib |
+| KSUID | 160 b | 27 | yes | lib |
+| Flake | 128 b | 18 | yes | app | 
+| Hashids | | | no | lib |
 
 
 ## Размышления
@@ -162,9 +195,13 @@ https://socnet.com/id5555/album/2
 ---
 ## К изучению
 - [X] [UUID wiki](https://en.wikipedia.org/wiki/Universally_unique_identifier)
-- [X] [Snowflake Id](https://en.wikipedia.org/wiki/Snowflake_ID). И [исходный код](https://github.com/twitter-archive/snowflake/tree/scala_28) серверного решения
+- [X] [История UUID](https://segment.com/blog/a-brief-history-of-the-uuid/)
+- [X] [Snowflake Id](https://en.wikipedia.org/wiki/Snowflake_ID). [Исходный код](https://github.com/twitter-archive/snowflake/tree/scala_28) серверного решения. [История появления](https://blog.twitter.com/engineering/en_us/a/2010/announcing-snowflake)
 - [X] [Уникальные Id в Instagram](https://instagram-engineering.com/sharding-ids-at-instagram-1cf5a71e5a5c)
+- [X] [Уникальные Id на стороне клиента в Firebase](https://firebase.blog/posts/2015/02/the-2120-ways-to-ensure-unique_68)
 - [X] [ULID](https://github.com/ulid/spec)
+- [X] [KSUID](https://github.com/segmentio/ksuid)
+- [X] [Flake](https://github.com/boundary/flake). [История появления](https://archive.ph/2015.07.08-082503/http://www.boundary.com/blog/2012/01/flake-a-decentralized-k-ordered-unique-id-generator-in-erlang/)
 - [ ] [NanoId](https://github.com/ai/nanoid) и его [использование в PlanetScale](https://planetscale.com/blog/why-we-chose-nanoids-for-planetscales-api)
 - [ ] [HashIds](https://hashids.org/)
 - [X] [Коллизии в популярной библиотеке для генерации UUID для PHP](https://github.com/ramsey/uuid/issues/80) (fixed)
