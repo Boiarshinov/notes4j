@@ -177,7 +177,7 @@ https://socnet.com/id5555/album/2
 | Snowflake | 64 b | | yes | app |
 | Instagram Id | 64 b | | yes | app |
 | ULID | 128 b | 26 | yes | lib |
-| NanoId | | 21 | | lib |
+| NanoId | 126 b | 21 | no | lib |
 | KSUID | 160 b | 27 | yes | lib |
 | Flake | 128 b | 18 | yes | app | 
 | Hashids | | | no | lib |
