@@ -53,6 +53,8 @@ draft: false
 Также Twitter искал способ каким образом можно упорядочить твиты по времени без введения отдельного поля с меткой времени.
 Для генерации идентификаторов было написано отдельное серверное приложение, которое может быть развернуто в виде кластера, отслеживаемого с помощью Apache Zookeeper.
 
+![snowflake architecture](../../images/src/snowflake.drawio.svg)
+
 Идентификаторы задаются с помощью 64-битного числа:
 ```
 [     ] [timestamp millis] [node id] [sequense number]
@@ -174,8 +176,8 @@ https://socnet.com/id5555/album/2
 | Способ генерации | bits | symbols | sortable | lib or app |
 |---|---|---|---|---|
 | UUID | 128 b | 36 | no | lib |
-| Snowflake | 64 b | | yes | app |
-| Instagram Id | 64 b | | yes | app |
+| Snowflake | 64 b | - | yes | app |
+| Instagram Id | 64 b | - | yes | app |
 | ULID | 128 b | 26 | yes | lib |
 | NanoId | 126 b | 21 | no | lib |
 | KSUID | 160 b | 27 | yes | lib |
