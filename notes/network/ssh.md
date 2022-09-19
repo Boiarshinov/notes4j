@@ -2,6 +2,7 @@
 title: "SSH"
 tags:
   - network
+  - security
 draft: false
 ---
 
