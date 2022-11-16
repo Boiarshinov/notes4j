@@ -113,12 +113,15 @@ GET /path/resource?param1=value1&param2=value2 HTTP/1.1
 
 ---
 ## Версии HTTP
-- HTTP/0.9 - существует только метод GET
-- HTTP/1.0 - добавилась вся основная функциональность
-- HTTP/1.1 - стало обязательным в каждый запрос добавлять заголовок `Host`. Используется большинством приложений по состоянию на 2022 г.
-- HTTP/2 - стал бинарным, появились push-уведомления от сервера
-- HTTP/3 - транспорт теперь UDP вместо [TCP](tcp.md)
+- HTTP/0.9 (1991 г.) - существует только метод GET
+- HTTP/1.0 (1996 г.) - добавилась вся основная функциональность
+- HTTP/1.1 (1999 г.) - стало обязательным в каждый запрос добавлять заголовок `Host`. Используется большинством приложений по состоянию на 2022 г.
+- HTTP/2 (2015 г.) - стал бинарным, появились push-уведомления от сервера
+- HTTP/3 (2022 г.) - транспорт теперь UDP вместо [TCP](tcp.md)
 
+HTTP/2 был пролоббирован Google для того, чтобы стандартизовать gRPC.
+
+Метод PATCH был включен в ряд стандартных методов HTTP отдельным стандартом в 2010 г. Поэтому некоторые старые инструменты, например стандартная библиотека Java (до появления отдельного HTTP API), не поддерживает его.
 
 ---
 ## HTTPS
@@ -157,6 +160,8 @@ HTTPS - это HTTP, в котором все зашифровано с помо
 - [X] [Объяснение разницы между PUT, POST и PATCH](https://stackoverflow.com/questions/31089221/what-is-the-difference-between-put-post-and-patch)
 - [X] [Wiki. HTTPS](https://ru.wikipedia.org/wiki/HTTPS)
 - [X] [Wiki. SNI](https://ru.wikipedia.org/wiki/Server_Name_Indication)
+- [X] [RFC-5789](https://www.rfc-editor.org/rfc/rfc5789.html), добавляющий метод PATCH
+- [X] [Список всех методов HTTP](https://www.iana.org/assignments/http-methods/http-methods.xhtml)
 
 
 [mime_note]: ../web/mime.md
