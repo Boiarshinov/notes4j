@@ -30,18 +30,11 @@ todo схема
 
 ## Виды rate limiter'ов
 Существует множество различных реализаций алгоритма rate limiter'а:
+- **fixed window counter** - 
 - **token bucket** - 
 - **leaking bucket** - 
-- **fixed window counter** - 
 - **sliding window log** -
 - **sliding window counter** - 
-
-### Token Bucket
-todo
-
-
-### Leaking Bucket
-todo
 
 
 ### Fixed Window Counter
@@ -53,6 +46,13 @@ Rate Limiter на основе фиксированного окна разби�
 Недостатком фиксированного окна является то, что если запросы будут сгруппированы у окончания одного окна и начала следующего окна, то система может получить в 2 раза больше трафика (но не более), чем было заявлено в ограничениях.
 
 ![fixed window rate limiter](../../images/src/fixed_window_rate_limiter.drawio.svg)
+
+### Token Bucket
+todo
+
+
+### Leaking Bucket
+todo
 
 
 ### Sliding Window Log
@@ -68,3 +68,5 @@ todo
 
 - [X] Книга Алекса Сюй "System Design Interview", глава 4
 - [X] Подкаст javaswag. Выпуск 26 с Максимом Бартковым
+- [ ] [Обзор различных вариантов](https://medium.com/figma-design/an-alternative-approach-to-rate-limiting-f8a06cf7c94c)
+- [ ] [Доклад от авторов библиотеки Bucket4j](https://www.youtube.com/watch?v=OSNFNxgZZ3A)
