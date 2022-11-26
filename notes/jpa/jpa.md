@@ -24,6 +24,7 @@ JTA - Java Transaction API
 
 - [Hibernate ORM](../external_lib/hibernate_orm.md) - самая популярная реализация.
 - Toplink - самая простенькая реализация от Oracle.
+- EclipseLink
 
 См.: https://stackoverflow.com/questions/17883971/which-provider-should-be-used-for-the-java-persistence-api-jpa-implemenation
 
