@@ -20,10 +20,21 @@ Allure сам не прогоняет тесты.
 Особенно полезной фичей Allure является визуализация исполнения тесткейсов во времени.
 Можно посмотреть во сколько потоков гонялись тесты, какие тест-кейсы выполнял каждый из потоков, равномерно ли были распределены тест-кейсы между потоками.
 
+Тест-кейсы в представлении Allure могут находиться в одном из состояний:
+- `passed` - тест прошел
+- `failed` - если в ходе теста был выброшен `AssertionError`
+- `broken` - если в ходе теста было выброшено неотловленное исключение
+- `skipped` - если тест был пропущен (мануально или через `junit.Assumption`)
+- `unknown` - хз, что за статус. В модели данных Allure такого статуса нет
+
+## Подключение
 В первоначальном виде Allure - это CLI утилита.
 Но для нее есть gradle и maven плагины, которые позволяют делать все (???) то же самое.
 
-## Подключение
+Очень полезным будет встроить генерацию отчета в свой CI инструмент.
+У Allure есть интеграции со всеми популярными: [Jenkins](../devops/jenkins.md), TeamCity, Bamboo.
+
+### Gradle Plugin
 Проще всего подключить allure к своему Java проекту с помощью gradle plugin:
 ```kotlin
 plugins {
@@ -140,4 +151,5 @@ try (InputStream inputStream = AllureAttachmentTest.class.getResourceAsStream("/
 ---
 ## К изучению
 - [ ] [Официальная документация](https://docs.qameta.io/allure/)
-- [X] [Allure Gradle Plugin](https://github.com/allure-framework/allure-gradle)
+- [X] [Allure Gradle Plugin](https://github.com/allure-framework/allure-gradle). Здесь есть актуальная документация по настройке плагина
+- [X] [Allure Java](https://github.com/allure-framework/allure-java). Исходники модели данных, всех адаптеров и прочего
