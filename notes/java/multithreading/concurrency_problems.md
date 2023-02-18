@@ -44,7 +44,25 @@ Race Condition (состояние гонки) - ошибки в написан�
 - Использование иммутабельных объектов. Ведет к увеличению мусора в системе
 - Использование различных способов исполнения задач (`CompletableFuture`, `ExecutorPool` и пр.)
 
+
+---
+## Инструменты
+- утилиты, встроенные в Java
+  - jstack - получить thread dump конкретного процесса
+  - jcmd
+  - jconsole - открывает GUI
+- графические:
+  - Java Mission Control (Java 11+)
+  - VisualVM
+- Thread Dump Analyzers (TDA)
+  - [fastThread](https://fastthread.io/)
+  - Spotify TDA
+  - IBM Thread and Monitor Dump Analyze
+  - irockel TDA
+
+
 ---
 ## К изучению
-- [X] Про Deadlock очень доступно: https://www.youtube.com/watch?v=s032s29-NUU&list=PL6jg6AGdCNaXo06LjCBmRao-qJdf38oKp
-- [X] Race Condition на Вики: https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5_%D0%B3%D0%BE%D0%BD%D0%BA%D0%B8
+- [X] [Про Deadlock очень доступно](https://www.youtube.com/watch?v=s032s29-NUU&list=PL6jg6AGdCNaXo06LjCBmRao-qJdf38oKp)
+- [X] [Race Condition на Вики](https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5_%D0%B3%D0%BE%D0%BD%D0%BA%D0%B8)
+- [X] [Курс по многопоточности в Java](https://fillthegaps.getcourse.ru/mt7)
