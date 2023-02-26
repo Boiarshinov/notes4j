@@ -20,7 +20,7 @@ draft: false
 - [Перечисления](enum.md)
 - [Аннотации](annotations.md)
 - Автоупаковка и автораспаковка
-- Future
+- [Пулы потоков](./multithreading/thread_pools.md) и вся сопутствующая обвязка вроде `Future`, `Callable` и т.д.
 - [Обобщения (Generics)](generics.md)
 
 ### Java 6 - Mustang (2006 г.)
@@ -47,6 +47,7 @@ draft: false
 - Статические методы в интерфейсах (были нужны для реализации стримов)
 - effective-final переменные и параметры методов
 - [Date Time API](time/datetime_api.md) - новое API для работы со временем
+- ForkJoinPool
 - CompletableFuture
 - Класс StringJoiner
 - Оптимизация HashMap при большом количестве коллизий (подробнее см. [Map](collections/map.md))
