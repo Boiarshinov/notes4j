@@ -48,7 +48,7 @@ draft: false
 - effective-final переменные и параметры методов
 - [Date Time API](time/datetime_api.md) - новое API для работы со временем
 - ForkJoinPool
-- CompletableFuture
+- [CompletableFuture](./multithreading/completable_future.md)
 - Класс StringJoiner
 - Оптимизация HashMap при большом количестве коллизий (подробнее см. [Map](collections/map.md))
 - Декодеры и энкодеры [Base64](../formats/base64.md)
