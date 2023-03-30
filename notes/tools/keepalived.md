@@ -8,7 +8,7 @@ draft: false
 
 # Keepalived
 
-**Keepalived** - это демон Linux, который предназначен для высокой доступности серверов и для балансировки нагрузки.
+**Keepalived** - это демон Linux, который предназначен для высокой доступности серверов и для [балансировки нагрузки](../architecture/load_balancer.md).
 
 Keepalived использует протокол **VRRP**.
 Данный протокол позволяет создавать **виртуальный** (**плавающий**) IP адрес (VIP), который будет слушать несколько реальных хостов.
@@ -58,5 +58,4 @@ vrrp_instance VI_1 {        # Идентификатор виртуальной 
 ## К изучению
 
 - [ ] [Документация на keepalived](https://keepalived.readthedocs.io/en/latest/introduction.html)
-- [ ] 
 - [ ] [RFC-2338 на VRRP](https://datatracker.ietf.org/doc/html/rfc2338)
