@@ -36,7 +36,6 @@ Hazelcast предоставляет REST интерфейс для получе
 ```
 
 Список эндпойнтов:
-
 - `GET <host:port>/hazelcast/rest/cluster` - информация о нодах в кластере
 - `GET <host:port>/hazelcast/rest/maps/<map>/<key>` - чтение из мапы по ключу
 - `POST <host:port>/hazelcast/rest/maps/<map>/<key>` - запись в мапу ключ-значение
@@ -53,16 +52,16 @@ Hazelcast предоставляет REST интерфейс для получе
 ---
 ## К изучению
 
-- [X] Официальный сайт: https://hazelcast.org/
+- [X] [Официальный сайт](https://hazelcast.org/)
 
 ### IMDG
 
-- [X] Документация: https://docs.hazelcast.com/imdg/latest/index.html
-- [ ] Курс по основам от самого хазеля: https://training.hazelcast.com/introduction-to-hazelcast
-- [X] Репозиторий Hazelcast IMDG: https://github.com/hazelcast/hazelcast
-- [X] Доклад Гамова на JPoint по Hazelcast в качестве кэша: https://www.youtube.com/watch?v=mU893v4HtF4&ab_channel=JUG.ru
+- [X] [Документация](https://docs.hazelcast.com/imdg/latest/index.html)
+- [ ] [Курс по основам](https://training.hazelcast.com/introduction-to-hazelcast) от самого хазеля
+- [X] [Репозиторий Hazelcast IMDG](https://github.com/hazelcast/hazelcast)
+- [X] Доклад Гамова на JPoint по [Hazelcast в качестве кэша](https://www.youtube.com/watch?v=mU893v4HtF4&ab_channel=JUG.ru). 52:02
 
 ### JET
 
-- [ ] Доклад Гамова на JPoint (устаревший подход): https://www.youtube.com/watch?v=J68pBDicGII&ab_channel=JUG.ru
-- [X] Репозиторий Hazelcast Jet: https://github.com/hazelcast/hazelcast-jet
+- [ ] [Доклад Гамова на JPoint (устаревший подход)](https://www.youtube.com/watch?v=J68pBDicGII&ab_channel=JUG.ru). 50:11
+- [X] [Репозиторий Hazelcast Jet](https://github.com/hazelcast/hazelcast-jet)
