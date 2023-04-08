@@ -55,6 +55,23 @@ try {
 }
 ```
 
+или можно сделать то же самое с помощью `tryAcquire()`:
+```java
+boolean permit = false;
+try {
+  permit = semaphore.tryAcquire(1, SECONDS);
+  if (permit) {
+    doSomething();
+  }
+} catch (InterruptedException e) {
+  //...
+} finally {
+  if (permit) {
+    semaphore.release();
+  }
+}
+```
+
 В связи с этим `Semaphore` практически никогда не используется.
 Вместо него лучше применять [локи](./locks.md) или [блокирующую очередь](../collections/queue.md)
 
