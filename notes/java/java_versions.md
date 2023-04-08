@@ -21,6 +21,7 @@ draft: false
 - [Аннотации](annotations.md)
 - Автоупаковка и автораспаковка
 - [Пулы потоков](./multithreading/thread_pools.md) и вся сопутствующая обвязка вроде `Future`, `Callable` и т.д.
+- [Барьеры](./multithreading/barrier.md)
 - [Обобщения (Generics)](generics.md)
 
 ### Java 6 - Mustang (2006 г.)
