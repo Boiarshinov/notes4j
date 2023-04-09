@@ -22,6 +22,7 @@ draft: false
 - Автоупаковка и автораспаковка
 - [Пулы потоков](./multithreading/thread_pools.md) и вся сопутствующая обвязка вроде `Future`, `Callable` и т.д.
 - [Барьеры](./multithreading/barrier.md)
+- [Потокобезопасные коллекции](./multithreading/collections.md)
 - [Обобщения (Generics)](generics.md)
 
 ### Java 6 - Mustang (2006 г.)
@@ -54,6 +55,7 @@ draft: false
 - Оптимизация HashMap при большом количестве коллизий (подробнее см. [Map](collections/map.md))
 - Декодеры и энкодеры [Base64](../formats/base64.md)
 - Добавлены некоторые специальные символы, использующиеся при разборе [регулярных выражений](regexp.md), таких как `\R`, `\h`, `\v` и другие
+- Существенно переработана [`ConcurrentHashMap`](./multithreading/collections.md)
 
 
 ### Java 9 (2017 г.)
