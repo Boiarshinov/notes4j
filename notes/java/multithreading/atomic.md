@@ -50,7 +50,7 @@ void updateValue() {
     - `AtomicIntegerArray` - для int
     - `AtomicLongArray` - для long
     - `AtomicReferenceArray` - для ссылок на объекты
-- Обновление полей через [рефлексию](reflection.md)
+- Обновление полей через [рефлексию](../reflection.md)
     - `AtomicIntegerFieldUpdater`
     - `AtomicLongFieldUpdater`
     - `AtomicReferenceFieldUpdater`
@@ -109,12 +109,12 @@ do {
 Внутри LongAdder помимо `volatile` переменной используется массив, в котором каждая ячейка принадлежит своему потоку.
 Если поток не смог обновить значение переменной, то он записывает значение в свою ячейку массива.
 
-- `increment()`
-- `decrement()`
-- `add(x)` - добавляет указанное значение
+- `void increment()`
+- `void decrement()`
+- `void add(x)` - добавляет указанное значение
 - `long sum()` - возвращает текущее значение счетчика
 - `long sumThenReset()`
-- `reset()` - сбрасывает значение счетчика
+- `void reset()` - сбрасывает значение счетчика
 
 `LongAdder` выгодно использовать когда значение часто обновляется и редко читается.
 
