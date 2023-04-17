@@ -27,7 +27,9 @@ https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA
 ## Команды быстрой записи
 
 - `sout` - для быстрой записи `System.out.print()`;
+- `souf` - для быстрой записи `System.out.printf()`;
 - `fori` - Для быстрого создания цикла `for (int i = 0; i < ; i++) { }`
+- `iter` - Для быстрого создания цикла `forEach (Object o : ) { }`
 - `psvm` - для быстрой записи главного метода класса
 
 ## Ответы на часто задаваемые вопросы
