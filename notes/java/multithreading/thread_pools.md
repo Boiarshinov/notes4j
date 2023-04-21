@@ -38,7 +38,7 @@ draft: false
   - `fixedThread` - фиксированное количество нитей
   - `cachedThread` - кэшируемый пул нитей
 - `ScheduledThreadPoolExecutor` - позволяет запланировать выполнение задачи через какой-то промежуток времени, а также запланировать периодическое выполнение задач
-- `ForkJoinPool`
+- `ForkJoinPool` - реализация из [Fork/Join фреймворка](./fork_join.md)
 
 Для создания экземпляров пулов используется специальный класс фабрика `Executors`:
 - `Executors.newSingleThreadExecutor()`
