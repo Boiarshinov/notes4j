@@ -15,6 +15,16 @@ JMH - Java Microbenchmark Harness - фреймворк для измерения
 
 todo
 
+Результаты бенчмарок по умолчанию выводятся в консоль, но если очень хочется, то можно их прихранить в json (и не только) файлик:
+```java
+Options options = new OptionsBuilder()
+    .include(CounterBenchmarks.class.getName())
+    .forks(1)
+    .resultFormat(ResultFormatType.JSON)
+    .result("benchmark-result.json")
+    .build();
+```
+
 ---
 ## Подключение и запуск
 
@@ -79,3 +89,5 @@ todo
 ---
 ## К изучению:
 - [ ] [Примеры использования библиотеки, одновременно являющиеся документацией](https://github.com/openjdk/jmh/tree/master/jmh-samples/src/main/java/org/openjdk/jmh/samples)
+- [ ] [Шипилев. Java Benchmarking: как два таймстампа прочитать!](https://www.youtube.com/watch?v=8pMfUopQ9Es&ab_channel=JPoint%2CJoker%D0%B8JUGru). 57:28
+- [X] [Web-тулза для визуализации результатов](https://jmh.morethan.io/)
