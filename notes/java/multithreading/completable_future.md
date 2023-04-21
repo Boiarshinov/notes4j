@@ -8,6 +8,7 @@ draft: false
 # CompletableFuture
 
 По умолчанию CompletableFuture использует дефолтный пул потоков `ForkJoinPool.commonPool()` для выполнения задач.
+Но его всегда можно переопределить.
 
 Если в ходе исполнения CompletableFuture на одном из этапов вылетит исключение, то последующие этапы пропускаются.
 
@@ -40,12 +41,14 @@ draft: false
 - `handle()` - позволяет обработать либо результат, либо исключение, а-ля монада Try
 - `exceptionally()` - поток исполнения зайдет сюда, если ранее по цепочке вылетело исключение. Если исключения не было, то метод будет пропущен
 
+### Обработка таймаутов
+- `completeOnTimeout(E, long, TimeUnit)` - если задача не успела выполниться за заданное время, то она прерывается, а в результате возвращается значение из первого аргумента.
 
 ### Объединение футур
 Логическое И:
 - `runAfterBoth()` - выполнится, когда оба этапа завершились
 - `thenCombine()` - объединяет результат и передает значение дальше
-- `allOf()` - завершается, когда все этапы выполнятся
+- `allOf(CompletableFuture...)` - завершается, когда все этапы выполнятся. Если в одной из футур вылетит исключение, то и `allOf()` упадет с исключением. Поэтому, если нужно корректно обработать возможные исключения, то следует в каждой `CompletableFuture` прописать собственную обработку исключений
 
 Логическое ИЛИ:
 - `runAfterEither()`
@@ -57,6 +60,30 @@ draft: false
 ## Конкретные кейсы
 Сюда бы добавить примеры того, как с помощью футур решать часто возникающие задачи.
 Например, сделать асинхронные запросы к двум сервисам и объединить их результаты.
+
+```java
+List<CompletableFuture<Result>> refreshingTasks = addresses.stream()
+                .map(a -> {
+                    String address = isLocalAdmin(a) ? "local" : a;
+                    Others.MountTableManager manager = managerFactory.apply(address);
+                    return CompletableFuture.supplyAsync(() -> new Result(a, manager.refresh()), executor)
+                            .completeOnTimeout(new Result(a, false), cacheUpdateTimeout, TimeUnit.MILLISECONDS)
+                            .exceptionally(e -> new Result(a, false));
+                })
+                .collect(Collectors.toList());
+
+        CompletableFuture.allOf(refreshingTasks.toArray(new CompletableFuture[0])).thenAccept(_void ->{
+            List<Result> results = refreshingTasks.stream()
+                    .map(CompletableFuture::join)
+                    .collect(Collectors.toList());
+
+            results.stream()
+                    .filter(result -> !result.success)
+                    .forEach(result -> removeFromCache(result.address));
+
+            logResults(results);
+        }).join();
+```
 
 
 ---
