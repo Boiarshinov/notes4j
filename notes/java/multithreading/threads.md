@@ -117,7 +117,7 @@ public static void main(String[] args){
 
 ![thread interruption](../../../images/thread_interruption.png)
 
-Спящий поток можно прервать с помощью метода interrupt(), при этом он выкинет исключение InterruptedException.
+Спящий поток можно прервать с помощью метода `interrupt()`, при этом он выкинет исключение `InterruptedException`.
 
 После того как поток проснулся он не обязательно тут же приступает к работе - планировщик потоков мог отдать приоритет какому-либо другому потоку.
 
