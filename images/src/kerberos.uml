@@ -1,0 +1,21 @@
+@startuml
+
+participant client as client
+participant "authentication\nserver" as as
+participant "ticket\ngranting\nserver" as tgs
+participant service as service
+
+client -> as: auth request
+as -> as: check user exists
+client <-- as: tgs session key
+client <-- as: encrypted TGT
+client -> tgs: user authenticator + encrypted TGT
+tgs -> tgs: check service exists
+tgs -> tgs: validate TGT
+client <-- tgs: service session key
+client <-- tgs: encrypted service ticket
+client -> service: user authenticator + encrypted service ticket
+service -> service: validate service ticket
+client <-- service: service authenticator
+
+@enduml
