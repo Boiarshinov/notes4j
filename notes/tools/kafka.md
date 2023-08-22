@@ -198,9 +198,11 @@ ConsumerRecord
   Иногда выдает NPE.
 
 ## Релизы
-- 3.0 - задепрекейчен MirrorMaker 1
+- 3.0 - задепрекейчен MirrorMaker 1. Добавлена возможность инкрементального обновления стратегии ребалансировки партиций между консьюмерами
 - 2.4 - добавлена возможность cooperative rebalancing при перебалансировке партиций. Релизнулся MirrorMaker 2, основанный на Kafka Connect.
 - 2.3 - static group membership
+- 1.1 - добавлено кэширование сессий консьюмеров на стороне брокеров
+- 1.0 - добавлена возможность подписки на топики, подходящие по [регулярному выражению](../java/regexp.md)
 - 0.11 - появился Admin Client, у записей появились header'ы
 - 0.10 - у записей появился timestamp, в брокерах появился индекс по timestamp
 
@@ -216,3 +218,4 @@ ConsumerRecord
 - [X] [Рекомендации по выбору количества партиций](https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/)
 - [X] [Стратегии распределения партиций по консьюмерам](https://medium.com/streamthoughts/understanding-kafka-partition-assignment-strategies-and-how-to-write-your-own-custom-assignor-ebeda1fc06f3)
 - [ ] [Описание работы ребалансировки партиций](https://medium.com/streamthoughts/apache-kafka-rebalance-protocol-or-the-magic-behind-your-streams-applications-e94baf68e4f2)
+- [X] Г. Кошелев - [Когда все пошло по Kafka 3: Apache Kafka и Consumer](https://www.youtube.com/watch?v=NXU_F_7STSM&t=1s&ab_channel=JPoint%2CJoker%D0%B8JUGru). 53:43
