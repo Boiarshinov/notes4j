@@ -8,56 +8,85 @@ draft: false
 ---
 
 **Spring Security** - один из фреймворков, входящих в состав [Spring](spring.md).
-
 Spring Security предназначен для определения прав пользователей на доступ к различным ресурсам.
-
 Spring Security основывается на технологии Servlet Filter.
 
 Аутентификация - проверка логина и пароля пользователя.
-
 Авторизация - проверка того, что пользователь обладает достаточными правами для доступа к ресурсу.
 
 Аутентификация может осуществляться различными методами:
-
 - С помощью средств HTTP
 - С помощью базовой спринговой формы аутентификации
 - С помощью сервера аутентификации
 
-Spring Security основывается на спецификации [Filters](../servlets/filters.md), входящей в состав [Java EE Servlets](../servlets/servlet.md).
-
-Spring Security для HTTP-запросов встраивает свой бин в цепочку фильтров сервлетов. Таким образом, любой запрос прежде чем попасть к ресурсу проходит через цепочку фильтров и, в том числе, через спринговый фильтр. Спринговый фильтр также может быть расширен своей цепочкой фильтрующих бинов.
-
 По умолчанию Spring Security предоставляет защиту от:
-
-- [CSRF](evernote:///view/170585988/s440/57d917ce-bccd-02bb-a768-d6b72c918681/48961e8e-4a2c-4d01-818a-19d7bfdff159/)
+- [CSRF](../security/csrf.md)
 - <mark>???</mark>
 
 Также Spring Security по умолчанию генерирует форму для аутентификации и отсылает туда всех неаутентифицированных пользователей.
 
 Дополнительно можно включать:
-
 - CORS
 
 При аутентификации пользователю, на основе его данных, создается токен аутентификации, который помещается во все HTTP-запросы пользователя в Cookies.
 
 ---
-## Роли
+## Фильтры
+Spring Security основывается на спецификации [Filters](../servlets/filters.md), входящей в состав [Java EE Servlets](../servlets/servlet.md).
+Spring Security для HTTP-запросов встраивает свой бин в цепочку фильтров сервлетов. 
+Таким образом, любой запрос прежде чем попасть к ресурсу проходит через цепочку фильтров и, в том числе, через спринговый фильтр `DelegatingFilterProxy`. 
+Спринговый фильтр является мостиком между сервлетными фильтрами и спринговым контекстом, он знает о спринговых бинах и позволяет встроить их в цепочку фильтров.
+`DelegatingFilterProxy` оборачивает спринговый бин `FilterChainProxy`, который позволяет настраивать цепочку фильтров из сприговых бинов.
+Также `FilterChainProxy` занимается очисткой Security Context, чтобы не текла память, и защищает приложения от некоторых типов атак.
+`FilterChainProxy` может быть настроен так, что в зависимости от реквизитов запроса он будет перенаправлять его в различные цепочки фильтров.
+Каждая цепочка может быть сгенерирована по-своему.
 
-Роль является признаком пользователя, устанавливающим ему доступ к определенной группе ресурсов.
+![Spring Security Filters](../../images/src/spring_security_filters.drawio.svg)
 
-У каждого пользователя может быть несколько ролей.
-<mark>//дальше</mark>
+Настройка фильтров проводится с помощью SecurityFilterChain API:
+```java
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
 
-### GrantedAuthority
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(Customizer.withDefaults())
+            .authorizeHttpRequests(authorize -> authorize
+                .anyRequest().authenticated()
+            )
+            .httpBasic(Customizer.withDefaults())
+            .formLogin(Customizer.withDefaults());
+        return http.build();
+    }
+}
+```
 
-GrantedAuthority - это полномочие, необходимое для доступа к какому-либо ресурсу.
+Стандартные фильтры:
+- `BasicAuthenticationFilter` - вытаскивает из запроса хэдер вида `Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==`, парсит из него имя пользователя и пароль. Пытается аутентифицировать пользователя с помощью `AuthenticationManager` и при успехе записывает данные о пользователе в `SecurityContext`.
+- `UsernamePasswordAuthenticationFilter` - используется в форме логина. Вытаскивает из параметров запроса username и password и пытается аутентифицировать пользователя с помощью `AuthenticationManager`. При успехе записывает данные о пользователе в `SecurityContext` и редиректит пользователя на ту страничку, с которой он попал на форму логина.
+
+
+---
+## Аутентификация
+Аутентификация пользователей проводится объектом класса `AuthenticationManager`.
+Он пропускает данные от пользователя через цепочку реализаций интерфейса `AuthenticationProvider`.
+Этот интерфейс имеет не очень удачный API.
+Его основной метод `Authentication authenticate(Authentication)` принимает и отдает объект одного и того же типа, что может сбивать с толку.
+На самом деле в аргументе будут переданы креды пользователя, а на выходе нужно вернуть информацию о пользователе - его `UserDetails` (см. далее).
+
+`Authentication` - это тоже интерфейс, предоставляющий базовую информацию о попытке аутентификации.
+После успешной аутентификации объект `Authentication` укладывается в Security Context.
+Самая базовая реализация этого интерфейса - `UsernamePasswordAuthenticationToken`.
+
+`AuthenticationProvider` имеет ряд популярных реализаций:
+- `DaoAuthenticationProvider` - достает данные о пользователе из `UserDetailsService`
 
 ---
 ## Конфигурация
 
-<mark>//вынести в отдельную заметку</mark>
-
-Конфигурирование SpringSecurity производится в бине, который должен наследоваться от `WebSecurityConfigurerAdapter`. Над классом в дополнение к стандартной `@Configuration` должна стоять аннотация `@EnableWebSecurity`.
+Конфигурирование SpringSecurity производится в бине, который должен наследоваться от `WebSecurityConfigurerAdapter` (уже не актуально, класс был удален в Spring 6). Над классом в дополнение к стандартной `@Configuration` должна стоять аннотация `@EnableWebSecurity`.
 
 ```java
 @Configuration
@@ -91,21 +120,57 @@ protected void configure(HttpSecurity http) throws Exception {
 
 Для описания каких-либо URL, к которым должна быть применена особая настройка, используются [Шаблоны AntPathMatcher](ant_path_matcher.md).
 
-### Данные о пользователях
+---
+## Данные о пользователях
+
+Базовое представление пользователя находится в интерфейсе `UserDetails`.
+Его основные методы:
+- `String getUsername()` - имя пользователя
+- `String getPassword()` - пароль
+- `Collection<> getAuthorities()` - список прав пользователя
+
+Реализации этого интерфейса различаются в зависимости от типа аутентификации.
+Базовая имплементация - это класс `User`, но для LDAP это уже будет `Person`.
+
+Права пользователя используются для того, чтобы проверить: имеет ли он право выполнять то или иное действие.
+Для представления права используется интерфейс `GrantedAuthority` с простейшей реализацией `SimpleGrantedAuthority`.
+Но для каких-то кастомных целях можно использовать другие реализации или написать собственную.
 
 Для функционирования приложения необходимо установить какое-то хранилище данных о пользователях, где будут содержаться данные о логине и пароле пользователя и его ролях.
+Эти данные могут храниться:
+- в памяти - решение для hello world
+- в базе данных
+- во внешнем сервисе аутентификации
+- на LDAP-сервере
 
-Эти данные могут храниться в памяти, что не слишком безопасно (в случае отключения электропитания или перезапуска приложения), а могут храниться в базе данных.
-
-Настройка хранения данных о пользователях производится в методе `configure(AuthenticationManagerBuilder)`
-
+Хранением и управлением пользователей занимаются интерфейсы `UserDetailsService` и `UserDetailsManager`.
+`UserDetailsService` позволяет только получать информацию о пользователе, а `UserDetailsManager` позволяет также создавать новых пользователей или редактировать существующих.
+Чтобы настроить хранение информации о пользователях нужно добавить в контекст бин одного из этих интерфейсов.
 ```java
-@Override
-protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    auth.jdbcAuthentication().dataSource(this.dataSource);
+@Bean
+fun userDetailsManager(): UserDetailsManager {
+    return InMemoryUserDetailsManager(
+        User.builder()
+            .username("user")
+            .password("topsecret").build(),
+        User.builder()
+            .username("admin")
+            .password("admin").build()
+    )
 }
 ```
 
+
+### Роли
+
+Роль является признаком пользователя, устанавливающим ему доступ к определенной группе ресурсов.
+
+У каждого пользователя может быть несколько ролей.
+<mark>//дальше</mark>
+
+
+
+---
 ### Форма аутентификации
 
 По умолчанию Spring Security предоставляет форму аутентификации. Если метод `configure(HttpSecurity)` переопределен, то форму аутентификации необходимо задать явно:
@@ -157,7 +222,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 ### Защита от CSRF
 
-Защита от [CSRF](evernote:///view/170585988/s440/57d917ce-bccd-02bb-a768-d6b72c918681/48961e8e-4a2c-4d01-818a-19d7bfdff159/) происходит с помощью токена.
+Защита от [CSRF](../security/csrf.md) происходит с помощью токена.
 
 Проверка токена проводится в одном из фильтров Spring Security. При отсутствии в запросе заголовка с токеном, будет выброшена ошибка 403.
 
@@ -251,6 +316,7 @@ Spring Security из коробки позволяет хранить данны
 
 - [ ] [Про доступ к методам](https://www.baeldung.com/spring-security-method-security)
 - [ ] [Официальная документация](https://docs.spring.io/spring-security/site/docs/5.4.1/reference/html5/#introduction) на Spring Security
+- [ ] [Архитектура](https://docs.spring.io/spring-security/reference/servlet/architecture.html) Spring Security
 - [ ] [Краткий обзор](https://habr.com/ru/post/470786) Spring Security
 - [X] Курс Spring & Hibernate for Beginners на Udemy в части касающейся
 - [ ] [Способы аутентификации в REST-сервисах](https://habr.com/ru/post/245415)
