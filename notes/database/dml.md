@@ -107,5 +107,18 @@ DELETE FROM table_1
 
 
 ---
+## MySQL
+В MySQL существует дополнительное ключевое слово `REPLACE`. 
+В выражении с `REPLACE` обязательно должен быть указан первичный ключ.
+Выражение работает как upsert: если значения не было, то команда работает как `INSERT INTO`, а если уже было, то предыдущее значение удаляется и на его место вставляется новое.
+```sql
+REPLACE INTO table_name (pk, column_1, column_2, ...) 
+VALUES (pk_val, value_1, value_2, ...),
+       (pk_val, value_1, value_2, ...),
+       (pk_val, value_1, value_2, ...);
+```
+
+
+---
 ## К изучению 
 - [X] Курс [Интерактивный тренажер по SQL](https://stepik.org/course/63054/syllabus)
