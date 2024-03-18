@@ -74,15 +74,31 @@ implementation(project(":another-subproject-name"))
 ---
 ## Конфигурации
 
-Стандартные конфигурации:
-- `implementation`
-- `api`
-- `classpath`
+Конфигурация - это область видимости зависимости.
+Какие-то зависимости должны быть видны только в тестах, какие-то только в рантайме.
+
+Конфигурации могут быть объявлены как в самом build файле, так и подтянуться из плагинов.
+Сужение конфигурации до минимально необходимой позволяет ускорить выполнение тасок и уменьшить размер classpath.
+
+Стандартные конфигурации Java-плагина:
+- `implementation` - зависимость, которая используется и при компиляции, и в рантайме.
+- `api` - определена в java-library плагине. Зависимости, добавленные с помощью этой конфигурации будут транзитивно подтягиваться в проекты, которые объявили зависимость от библиотеки.
+- `compileOnly` - зависимости, которые нужны только при компиляции, но не в рантайме. Например, различные кодогенераторы: lombok, 
+- `runtimeOnly` - зависимости, которые нужны только в рантайме
+- `testImplementation` - зависимости, которые нужны только в тестах
 - Устаревшие
-  - `compile`
+  - `compile` - удалена в Gradle 7.0
+
+Конфигурации могут выстраиваться в иерархии с помощью наследования.
+Например, конфигурация `testImplementation` наследуется от `implementation`, поэтому в тестах в classpath будут помещены зависимости и той, и другой конфигурации.
 
 ### Создание собственных конфигураций
 todo
+
+Объявление конфигурации:
+```kotlin
+val liquiScripts: Configuration by configurations.creating
+```
 
 ---
 ## Таски
@@ -167,7 +183,15 @@ gradle clean build -x test
 ```shell
 gradle wrapper
 ```
+Эта таска есть по умолчанию в каждом Gradle проекте.
 Будет выкачана версия Gradle Wrapper, соответствующая установленному Gradle.
+
+При выкачке можно указать тип дистрибутива: `bin` или `all`. 
+`bin` не содержит в себе документации и исходников gradle.
+По умолчанию используется `bin`.
+```shell
+gradle wrapper --distribution-type all
+```
 
 Используемая версия Gradle указывается в настройке `distributionUrl` файла `gradle-wrapper.properties`.
 Она будет выкачена в директорию `build/` проекта и в `wrapper/dists/` в директории с установленным Gradle.
@@ -186,3 +210,4 @@ gradle wrapper
 - [ ] [Plugins](https://docs.gradle.org/current/userguide/plugins.html)
 - [ ] [How to make plugin](https://github.com/jjohannes/gradle-plugins-howto)
 - [ ] [Idiomatic gradle](https://github.com/jjohannes/idiomatic-gradle)
+- [ ] [Конфигурации зависимостей](https://docs.gradle.org/current/userguide/declaring_dependencies.html)
