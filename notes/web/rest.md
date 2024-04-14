@@ -58,7 +58,5 @@ todo
 - [X] [Критика REST](https://medium.com/free-code-camp/rest-is-the-new-soap-97ff6c09896d), [перевод](https://habr.com/ru/company/mailru/blog/345184/)
 - [X] [Рекомендации по проектированию REST API](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api) - Великолепная статья
 - [ ] Сравнение REST с SOAP: https://habr.com/ru/post/131343/
-- [ ] Статьи по REST на JR: https://javarush.ru/groups/posts/2486-obzor-rest-chastjh-1-chto-takoe-rest
 - [ ] Онлайн книга по REST (англ): http://restcookbook.com/
-- [ ] Книга про REST (англ): https://www.amazon.com/gp/product/0596805829?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596805829
 - [ ] Книга про RESTful Web API (с ленивцем): http://restfulwebapis.org/
