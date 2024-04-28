@@ -24,9 +24,13 @@ POST /resource/{id}/action
 ```
 
 Google в своих гайдах рекомендует использовать двоеточие для отделения ресурса от кастомного действия `/resource/{id}:action`, но далеко не все фреймворки поддерживают двоеточие в качестве разделителя.
-Например, разработчики [Spring отказались](https://github.com/spring-projects/spring-framework/issues/24771) поддерживать двоеточие.
+Например, разработчики [Spring отказались][spring_colon] поддерживать двоеточие.
 
 
 ---
 ## К изучению
 - [X] Книга "Паттерны проектирования API". Глава 9
+- [ ] [Гайд от Google](https://cloud.google.com/apis/design/custom_methods) по пользовательским методам
+- [X] Ветка обсуждений про [отсутствие поддержки двоеточий в пути ресурса в Spring Framework][spring_colon]
+
+[spring_colon]: https://github.com/spring-projects/spring-framework/issues/24771
