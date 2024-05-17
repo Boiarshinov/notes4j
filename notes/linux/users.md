@@ -2,7 +2,8 @@
 title: "Linux users"
 tags:
   - linux
-draft: true
+  - security
+draft: false
 ---
 
 # Users
