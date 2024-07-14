@@ -139,6 +139,31 @@ public class MyApplication {
 
 
 ---
+## Автоконфигурация
+Существенная часть магии Spring Boot работает за счет автоконфигурации.
+Spring Boot самостоятельно создает необходимые бины при наличии в classpath нужных зависимостей.
+Например, при подключении библиотеки `spring-kafka` Spring Boot самостоятельно создаст бины `KafkaTemplate`, `ProducerFactory` и другие.
+
+Делается это следующим образом.
+В Spring Boot входит библиотека `spring-boot-autoconfigure`.
+В этой библиотеке лежит огромное количество различных конфигурационных классов с названием `___AutoConfiguration`.
+Также все эти конфигурационные классы перечислены в файле `/META-INF/spring.factories`, лежащим внутри указанной библиотеки.
+
+Для того чтобы применялись только нужные для проекта конфигурации, а лишние не применялись, все автоконфигурационные классы помечены той или иной  `@Conditional` аннотацией.
+Например, `KafkaAutoConfiguration`:
+```java
+@Configuration
+@ConditionalOnClass(KafkaTemplate.class)
+//...
+public class KafkaAutoConfiguration {
+  //...
+}
+```
+
+Таким образом конфигурация будет применена только если в classpath будет класс `KafkaTemplate`.
+А он появится в classpath при подключении соответствующей библиотеки.
+
+---
 ## К изучению
 
 - [ ] [Официальная документация](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/)
