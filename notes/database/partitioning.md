@@ -52,4 +52,4 @@ PARTITION BY RANGE( UNIX_TIMESTAMP(created_at) ) (
 
 ---
 ## К изучению
-- [ ] [Документация MySQL. Партиционирование](https://dev.mysql.com/doc/refman/5.7/en/partitioning.html)
+- [X] [Документация MySQL. Партиционирование](https://dev.mysql.com/doc/refman/5.7/en/partitioning.html)
