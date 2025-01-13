@@ -55,19 +55,27 @@ Kafka Connect может быть поднято в двух разных реж
 
 **Конвертер** - это код, который переводит `ConnectRecord` в массив байт, записываемый в Kafka. Работает и в другую сторону.
 
-![Kafka Connector and Converter](../../images/kafka_connector_converter.png)
-
-Лучше всего использовать конвертеры в один из 3 форматов:
+Kafka Connect из коробки поддерживает конвертеры:
 - Avro
-- Protobuf
-- JSON с Json Schema
+- [Protobuf](../formats/protobuf.md)
+- [JSON](../formats/json.md) с Json Schema
+- Строки
+- Массивы байт (видимо для записи файлов)
 
+Рекомендуется использовать конвертеры со схемами: Avro, Protobuf, JSON с Json Schema.
 Эти форматы позволяют развивать модель данных (убирать поля, добавлять новые), не боясь повредить существующие данные и не боясь разучиться их парсить. 
-Объявления схем могут храниться в `SchemaRegistry`.
+Объявления схем могут храниться в __Schema Registry__.
+
+Если стандартных конвертеров не хватает, то всегда можно написать свой или найти готовый на просторах сети, и подложить его в Kafka Connect.
+
 
 **Трансформации** - преобразования, которые применяются к каждой записи, проходящей через Kafka Connect. 
 Трансформаторы исповедуют принцип SMT.
 
+Все записи, проходящие через Kafka Connect, проходят этапы конвертации и трансформации. 
+Последовательность выполнения этапов зависит от типа коннектора: Source или Sink.
+
+![kafka_connect_etl](../../images/src/kafka_connect_etl.drawio.svg)
 
 ### Коннекторы (плагины)
 
@@ -130,6 +138,66 @@ Kafka Connect может быть поднято в двух разных реж
 
 [todo]: # (Описать как реализовать свой трансформатор)
 
+
+## Конвертеры
+
+__Конвертер__ - это код, который переводит массив байт, считываемый из Kafka, в структурное представление (`ConnectRecord`).
+Над этим структурным представлением можно выполнять трансформации и описывать маппинг на источники и сливы данных.
+Конвертеры занимаются и обратным преобразованием: из `ConnectRecord` в массив байтов для записи в Kafka коннектором типа source.
+
+Тип конвертера описывается в настройках конвертера:
+```json
+{
+  "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+  "value.converter": "io.confluent.connect.protobuf.ProtobufConverter"
+}
+```
+
+Из коробки Kafka Connect имеет следующие конвертеры:
+- `AvroConverter` - `io.confluent.connect.avro.AvroConverter`
+- `ProtobufConverter` - `io.confluent.connect.protobuf.ProtobufConverter`
+- `JsonSchemaConverter` - `io.confluent.connect.json.JsonSchemaConverter`
+- `JsonConverter` - `org.apache.kafka.connect.json.JsonConverter` - используется по умолчанию
+- `StringConverter` - `org.apache.kafka.connect.storage.StringConverter` - используется по умолчанию для заголовков
+- `ByteArrayConverter` - `org.apache.kafka.connect.converters.ByteArrayConverter`
+
+`JsonConverter` может работать в двух режимах: со схемой или без. 
+Это регулируется настройками
+```json
+"key.converter.schemas.enable": false,
+"value.converter.schemas.enable": true,
+```
+Если схема включена, то каждое json сообщение должно содержать в себе структуру с описанием схемы вида:
+```json
+{
+  "schema": {
+    "type": "struct",
+    "fields": [
+      {
+        "type": "string",
+        "optional": false,
+        "field": "name"
+      }
+    ],
+    "optional": false,
+    "name": "my_schema"
+  },
+  "payload": {
+    "name": "value1"
+  }
+}
+```
+
+Можно написать и свой конвертер. 
+Для этого нужно реализовать интерфейс `org.apache.kafka.connect.storage.Converter`.
+Класс надо запаковать в jar и подложить в `etc/kafka-connect/jars`
+Затем им можно будет воспользоваться, указав в настройках коннектора:
+```json
+{
+  "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+  "value.converter": "dev.boiarshinov.kafka.connect.storage.MyLovelyConverter"
+}
+```
 
 ---
 ## Rest API
