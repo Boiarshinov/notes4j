@@ -147,7 +147,7 @@ HTTPS - это HTTP, в котором все зашифровано с помо
 - Unirest Http API - надстройка над Apache Http Client с упрощенным API
 - OkHttp
 - Spring RestTemplates - синхронный HTTP клиент. Считается устаревшим
-- Spring WebClient - асинхронный HTTP клиент, подходящий для реактивных приложений
+- [Spring WebClient](../spring/web_client.md) - асинхронный HTTP клиент, подходящий для реактивных приложений
 - Spring RestClient - синхронный HTTP клиент
 - Spring Cloud OpenFeign - декларативный клиент, использующий кодогенерацию
 

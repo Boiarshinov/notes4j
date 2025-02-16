@@ -32,7 +32,7 @@ draft: false
 Популярные форматы:
 - [Protobuf](protobuf.md) - формат от Google. Использует схемы для описания форматов сообщений. Имеет компилятор схем для всех популярных языков. Используется в gRPC.
 - Thrift - формат от Facebook
-- Avro - часто используется в области Big Data
+- Avro - часто используется в области Big Data, т.к. позволяет динамически генерировать схемы сообщений из, например, 
 - Java Serialization - плохой вариант, т.к. не все сервисы могут быть написаны на Java. Есть проблемы с прямой и обратной совместимостью
 - [Cap'n Proto](https://capnproto.org/) - развитие protobuf от его создателей
 - [SBE](https://github.com/real-logic/simple-binary-encoding) - Simple Binary Encoding
