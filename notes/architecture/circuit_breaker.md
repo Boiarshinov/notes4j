@@ -4,7 +4,7 @@ tags:
   - architecture
   - pattern
   - fault_tolerance
-draft: true
+draft: false
 ---
 
 # Circuit breaker
