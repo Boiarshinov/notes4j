@@ -87,6 +87,11 @@ networkDelta = (clientReceiveTime - clientRequestTime) - (serverResponseTime - s
 long currentNano = System.nanoTime();
 ```
 
+Для синхронизации часов есть еще один протокол - __PTP__ - Precision Time Protocol.
+Он позволяет добиться намного более высокой синхронизации часов, чем NTP, но требует более сложной настройки и поддержки.
+PTP используется в финансовых системах High Frequency Trading.
+
+
 ## Happens Before
 Событие A happens before события B если
 - события A и B произошли на одной ноде и событие A было раньше
@@ -109,4 +114,5 @@ long currentNano = System.nanoTime();
 
 - [X] [3 лекция](https://www.youtube.com/watch?v=FQ_2N3AQu0M&list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB&index=8&ab_channel=MartinKleppmann) курса по распределенным системам от Мартина Клеппманна
 - [ ] [Wiki - NTP](https://en.wikipedia.org/wiki/Network_Time_Protocol)
+- [ ] [Wiki - PTP](https://en.wikipedia.org/wiki/Precision_Time_Protocol)
 - [X] Книга Теоретический минимум Computer Science. Сети, криптография и Data Science. Глава 2.2
