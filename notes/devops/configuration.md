@@ -61,3 +61,4 @@ _Env переменные_ - это параметры процесса, зап�
 ---
 ## К изучению
 - [X] [Externalized configuration](https://microservices.io/patterns/externalized-configuration.html)
+- [X] [Why you don't need Spring Cloud Config](https://www.frankneff.com/blog/2022-02-25-why-you-dont-need-spring-cloud-config/)
