@@ -6,7 +6,10 @@ tags:
 draft: false
 ---
 
-Для более удобного отправления запросов с использованием протокола [HTTP](evernote:///view/170585988/s440/efb3b15f-dcad-4653-857a-3e0b292f9ffe/48961e8e-4a2c-4d01-818a-19d7bfdff159) на удаленные сервера существует множество библиотек. Одна из которых: Apache Http Client.
+# Apache Http Client
+
+Для более удобного отправления запросов с использованием протокола [HTTP](../network/http.md) на удаленные сервера существует множество библиотек. 
+Одна из которых: Apache Http Client.
 
 Принцип работы клиента состоит в том, что пользователь формирует запрос, передает его в Http Client и получает ответ, либо исключение при возникновении какой-либо ошибки.
 
@@ -86,17 +89,6 @@ URI uri = new URIBuilder()
     .build();
 ```
 
----
-## Подключение библиотеки
-
-Для подключения библиотеки с помощью Maven достаточно добавить следующую зависимость:
-```xml
-<dependency>
-    <groupId>org.apache.httpcomponents</groupId>
-    <artifactId>httpclient</artifactId>
-    <version>${httpclient.version}</version>
-</dependency>
-```
 
 ---
 ## К изучению:
