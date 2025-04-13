@@ -5,6 +5,8 @@ tags:
 draft: false
 ---
 
+# Логирование
+
 Логирование предназначено для ведения истории процессов, которые происходят в системе.
 В случае серверных приложений в лог обычно записываются входящие и исходящие сообщения, обращения к другим ресурсам.
 
@@ -30,11 +32,11 @@ draft: false
 ```java
 return entities.stream()
   .map(it -> {
-      long startTime = System.currentTimeMillis();
+      long startTime = System.nanoTime();
       MappedEntity mappedEntity = map(it);
-      long finishTime = System.currentTimeMillis();
+      long finishTime = System.nanoTime();
       log.debug(
-        "Mapping of enitity with id '{}' done in {} millis", 
+        "Mapping of enitity with id '{}' done in {} nanos", 
         it.getId(), 
         finishTime - startTime);
       return mappedEntity;
@@ -44,13 +46,13 @@ return entities.stream()
 
 В таких случаях стоит отказаться от логирования, либо зарефакторить его:
 ```java
-long startTime = System.currentTimeMillis();
+long startTime = System.nanoTime();
 List<MappedEntity> mappedEntities = entities.stream()
   .map(it -> map(it))
   .collect(toList());
-long delay = System.currentTimeMillis() - startTime;
+long delay = System.nanoTime() - startTime;
 log.debug(
-        "Mapping of {} enitities done in {} millis. Average time = {}", 
+        "Mapping of {} enitities done in {} nanos. Average time = {}", 
         entities.size()
         delay,
         (double) delay / entities.size());
@@ -85,16 +87,10 @@ log.debug("Interesting details: {}", () -> getSmth());
 - System.Logger - появившийся в [Java 9](java/java_versions.md) фасад для логирования, очень похожий на SLF4J. Так и не стал новым стандартом из-за некоторых недостатков, усложняющих миграцию на него.
 
 Как отмечалось ранее, на данный момент стандартом де-факто является фасад SLF4J, при этом под его капотом могут использоваться различные библиотеки:
-- [Logback](external_lib/logback.md) - на сегодня самая популярный логгер. При этом он разработан создателями SLF4J, не имеет дополнительных оберток и адаптеров, а потому работает с SLF4J быстрее, чем другие библиотеки
+- [Logback](external_lib/logback.md) - на сегодня самый популярный логгер. При этом он разработан создателями SLF4J, не имеет дополнительных оберток и адаптеров, а потому работает с SLF4J быстрее, чем другие библиотеки
 - Log4j - предтеча всех библиотек для логирования
 - [JUL - java.util.logging](java/java_util_logging.md) - стандартная Java реализация
 - Log4j2 - набирающая популярность библиотека, поддерживающая lazy evaluation с помощью лямбда-выражений.
-
-На сегодня репозиторий SLF4J кажется заброшенным.
-Последний коммит в репозитории был сделан в феврале 2020 г.
-Релиз 2.0.0, в котором тоже должна появиться поддержка лямбда-выражений, был анонсирован в середине 2019 г. и до сих пор находится в альфе.
-
-Тем временем log4j2 активно развивается и кажется идеальным выбором для новых проектов.
 
 
 ## Трассировщики
