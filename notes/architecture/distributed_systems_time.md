@@ -115,4 +115,4 @@ PTP используется в финансовых системах High Frequ
 - [X] [3 лекция](https://www.youtube.com/watch?v=FQ_2N3AQu0M&list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB&index=8&ab_channel=MartinKleppmann) курса по распределенным системам от Мартина Клеппманна
 - [ ] [Wiki - NTP](https://en.wikipedia.org/wiki/Network_Time_Protocol)
 - [ ] [Wiki - PTP](https://en.wikipedia.org/wiki/Precision_Time_Protocol)
-- [X] Книга Теоретический минимум Computer Science. Сети, криптография и Data Science. Глава 2.2
+- [X] Книга "Теоретический минимум по Computer Science. Сети, криптография и Data Science". Ф.Ф. Владстон, П. Мото. Глава 2.2

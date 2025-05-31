@@ -59,5 +59,5 @@ draft: false
 
 ---
 ## К изучению
-- [X] Книга Теоретический минимум по Computer Science, глава 3
+- [X] Книга "Теоретический минимум по Computer Science. Сети, криптография и Data Science". Ф.Ф. Владстон, П. Мото. Глава 3 - Безопасность.
 - [X] [Crypto hash functions. Wiki](https://en.wikipedia.org/wiki/Comparison_of_cryptographic_hash_functions)
