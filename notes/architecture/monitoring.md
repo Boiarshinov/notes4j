@@ -39,7 +39,8 @@ __bandwith__ - максимальное количество tcp-пакетов,
   - top, vmstat, ...
 - приложение:
   - JMX
-  - Micrometer
+  - Dropwizard - уже редко используется, все перешли на Micrometer
+  - [Micrometer](../external_lib/micrometer.md)
   - spring-metrics
 - коробочные системы - у каждой системы есть свой API для получения метрик
   - БД
