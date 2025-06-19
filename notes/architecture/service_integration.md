@@ -10,7 +10,7 @@ draft: false
 - Remote Procedure Call - вызов методов удаленного сервиса (в Java это называется RMI)
 - CORBA (в Java называется EJB)
 - SOAP
-- [REST-сервисы](evernote:///view/170585988/s440/2b69a76d-8eff-4c6d-ba84-a73c5a4a0a31/48961e8e-4a2c-4d01-818a-19d7bfdff159)
+- [REST-сервисы](../web/rest.md)
 
 ---
 ## Интеграция через БД

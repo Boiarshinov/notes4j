@@ -18,7 +18,7 @@ draft: false
 | ServletRequestAttributeListener | ServletRequestAttributeEvent | Получает событие, когда добавляются атрибуты к реквесту |
 | HttpSessionBindingListener | HttpSessionBindingEvent | Получает событие, когда объекты класса атрибута привязываются или удаляются от сессии. Используется для оповещения объектов класса атрибута об их использовании. Интерфейс обычно реализуется классами, которые выступают в качестве атрибутов. |
 | HttpSessionAttributeListener | HttpSessionBindingEvent | Получает событие, когда добавляются или изменяются атрибуты сессии |
-| ServletContextListener | ServletContextEvent | Получает события при развертывании и выключении веб-приложения. Используется для подключения ресурсов. Подробнее тут: [Развертывание веб-приложений](evernote:///view/170585988/s440/9b6c0517-14b2-4a76-9e84-22227a66574e/9b6c0517-14b2-4a76-9e84-22227a66574e/) |
+| ServletContextListener | ServletContextEvent | Получает события при развертывании и выключении веб-приложения. Используется для подключения ресурсов. Подробнее тут: [Развертывание веб-приложений](./deployment_descriptor.md) |
 | HttpSessionActivationListener | HttpSessionEvent | Получает событие, когда сессия мигрирует с одной виртуальной машины (сервера) на другую |
 
 ---
