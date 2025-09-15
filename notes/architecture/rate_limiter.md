@@ -30,8 +30,8 @@ todo схема
 
 ## Виды rate limiter'ов
 Существует множество различных реализаций алгоритма rate limiter'а:
-- **fixed window counter** - 
-- **token bucket** - 
+- **fixed window counter** - самая простая реализация
+- **token bucket** - аналог fixed window counter, но дополнительно позволяет контролировать всплески нагрузки
 - **leaking bucket** - 
 - **sliding window log** -
 - **sliding window counter** - 
@@ -47,12 +47,35 @@ Rate Limiter на основе фиксированного окна разби�
 
 ![fixed window rate limiter](../../images/src/fixed_window_rate_limiter.drawio.svg)
 
+В экосистеме Java алгоритм Fixed Window Counter реализован в популярной библиотеке Resilience4j.
+
 ### Token Bucket
-todo
+Token Bucket - это модель, в которой у нас есть контейнер (bucket) с ограниченным количеством токенов/талонов (token).
+В контейнер с заданной периодичностью добавляются токены.
+При превышении объема контейнера лишние токены выбрасываются.
+Каждый запрос расходует некое количество токенов (в простейшем случае - 1).
+
+![token_bucket_img](../../images/token_bucket.png)
+
+Реализация алгоритма не требует дополнительных потоков и может быть неблокирующей (с оптимистической блокировкой).
+Добавление токенов производится в том же потоке, который обрабатывает запрос.
+
+С помощью объема контейнера можно регулировать величину всплесков (__burst__).
+
+Token Bucket конфигурируется с помощью трех параметров: 
+- _capacity_ - максимальное количество токенов в контейнере;
+- _refill interval_ - периодичность, с которой в контейнер добавляются токены;
+- _refill rate_ - количество токенов, которые добавляются в контейнер.
+
+При значении `capacity == refill interval` token bucket превращается в Fixed Window Counter.
+
+В экосистеме Java алгоритм token bucket реализован в популярной библиотеке Bucket4j.
 
 
 ### Leaking Bucket
 todo
+
+Алгоритм Leaking Bucket используется в nginx.
 
 
 ### Sliding Window Log
