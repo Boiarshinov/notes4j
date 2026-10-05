@@ -1,0 +1,11 @@
+@startuml
+
+participant client as client
+participant server as server
+
+client -> server: generate nonce
+server --> client: nonce
+client -> server: login(username, cnonce, hash(nonce + cnonce + password))
+server --> client: token
+
+@enduml
