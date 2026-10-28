@@ -94,11 +94,11 @@ todo
 Для составления оптимального плана миграции используются жадные алгоритмы и динамическое программирование.
 
 ### Cassandra
-В Cassandra используется подход consistent hashing.
+В [Cassandra](../database/cassandra.md) используется подход consistent hashing.
 При этом каждой ноде присваивается 256 vNode.
 
 ### Hazelcast
-В Hazelcast](../external_lib/hazelcast.md) используется подход с hash partition.
+В [Hazelcast](../external_lib/hazelcast.md) используется подход с hash partition.
 При вводе новой ноды, пересчитывается количество партиций, приходящихся на одну ноду.
 
 По умолчанию всего 271 партиция.
