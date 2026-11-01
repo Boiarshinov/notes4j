@@ -32,8 +32,14 @@ draft: false
 - __LZMA__ - сжимает лучше, чем Deflate, но расходует больше ресурсов. Используется в утилите 7z, в Debian для сжатия пакетов.
 - __Brotli__ - алгоритм сжатия, разработанный в google и предназначенный для web. Поставляется с словарем часто встречающихся значений в html и других web-документов. Зафиксирован в стандарте RFC-7932.
 - __LZ77__ - основополагающий алгоритм сжатия, разработанный в 1977 году. Использует скользящие окна. Стал базой для многих последующих алгоритмов сжатия. Сам по себе уже не используется.
-- __LZ4__ - основан на LZ77. Обладает скоростью распаковки в несколько раз выше, чем у Deflate. Используется в Hadoop.
-- __Zstandard__ - разработан в Facebook на основе LZ77. Обладает высокой степенью сжатия, сопоставимой с deflate, и одной из самых высоких скоростей среди конкурентов. Используется в файловой системе Fedora. Используется в образах игр для Nintendo Switch.
+- __LZ4__ - основан на LZ77. Обладает скоростью распаковки в несколько раз выше, чем у Deflate. Используется в Hadoop. Дефолтный способ компрессии SSTable в [Cassandra](../database/cassandra.md).
+- __Zstandard__ - разработан в Facebook на основе LZ77. Обладает высокой степенью сжатия, сопоставимой с deflate, и одной из самых высоких скоростей среди конкурентов. Используется в файловой системе Fedora. Используется в образах игр для Nintendo Switch. Также поддерживается в [Cassandra](../database/cassandra.md).
+
+| Алгоритм | Скорость компрессии | Скорость декомпрессии | Степень сжатия |
+|---|---|---|---|
+| Deflate | C | C | A |
+| LZ4 | A+ | A+ | C+ |
+| Zstandard | A- | A- | A+ |
 
 ---
 ## К изучению
@@ -41,3 +47,4 @@ draft: false
 - [ ] [Deflate](https://ru.wikipedia.org/wiki/Deflate). [RFC-1951](https://datatracker.ietf.org/doc/html/rfc1951)
 - [ ] [Brotli](https://ru.wikipedia.org/wiki/Brotli). [RFC-7932](https://datatracker.ietf.org/doc/html/rfc7932)
 - [ ] [Zstandard](https://en.wikipedia.org/wiki/Zstd). [RFC-8878](https://datatracker.ietf.org/doc/html/rfc8878)
+- [ ] [Сравнение алгоритмов сжатия от разработчиков Cassandra](https://cassandra.apache.org/doc/6.0/cassandra/managing/operating/compression.html)
