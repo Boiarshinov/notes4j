@@ -31,3 +31,4 @@ WAL используются и в реляционных БД, например
 
 - [X] [Статья на Вики](https://en.wikipedia.org/wiki/Write-ahead_logging)
 - [X] Книга Алекса Петрова "Распределенные данные", глава 5
+- [ ] [Устройство Commit Log в Cassandra](https://cassandra.apache.org/_/blog/Learn-How-CommitLog-Works-in-Apache-Cassandra.html)
