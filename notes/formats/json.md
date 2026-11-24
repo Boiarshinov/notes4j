@@ -38,6 +38,14 @@ draft: false
 
 Значения параметров объектов могут быть любого типа (даже массивом)
 
+Если в строковых значениях требуется указать символы, которые являются частью синтаксиса формата, то они выделяются с помощью escape символа `\`.
+Например:
+```json
+{
+  "formattedLine": "\"quoted\" text, multi\nline, unicode char \u1234"
+}
+```
+
 ### Представление мапы (словаря, отображения)
 
 Для мап в JSON не предусмотрено отдельного формата. Вместо этого мапы представляются в виде объекта, в котором каждый ключ - это отдельное поле со своим объектом
@@ -74,6 +82,8 @@ draft: false
 ---
 ## К изучению
 
+- [X] Стандарт [RFC 8259](https://www.ietf.org/ietf-ftp/rfc/std/std90.txt)
+- [X] Стандарт [ECMA-404](https://ecma-international.org/wp-content/uploads/ECMA-404_2nd_edition_december_2017.pdf)
 - [X] [Вики](https://ru.wikipedia.org/wiki/JSON) про JSON
 - [X] [Англоязычный туториал](https://restfulapi.net/introduction-to-json/) по JSON
 - [ ] [JSON-схемы](http://json-schema.org/)
